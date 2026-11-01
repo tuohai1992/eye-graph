@@ -87,7 +87,7 @@ export default {
       headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
       body: JSON.stringify({
         model: env.MODEL || MODEL,
-        max_tokens: 900,
+        max_tokens: 4000,
         system: [{ type: 'text', text: await context(), cache_control: { type: 'ephemeral' } }],
         messages
       })
@@ -95,6 +95,7 @@ export default {
     if (!r.ok) return json({ error: 'upstream_error', status: r.status }, 502, h);
     const out = await r.json();
     const text = (out.content || []).filter(c => c.type === 'text').map(c => c.text).join('');
+    if (!text.trim()) return json({ error: 'empty_answer', stop_reason: out.stop_reason || null }, 502, h);
     return json(parseJSON(text), 200, h);
   }
 };
