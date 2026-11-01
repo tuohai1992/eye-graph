@@ -1,0 +1,178 @@
+pmid,decision,reason
+38471750,included,
+39695504,included,
+35940854,included,
+32277941,included,
+29417445,included,
+12867401,included,
+42266519,included,
+37059392,included,
+33658759,included,
+29847608,included,
+25415642,included,
+24648717,included,
+23614930,included,
+22729099,included,
+19208679,included,
+17826833,included,
+16170108,included,
+16276277,included,
+11797316,included,
+42493702,included,
+41068823,included,
+37024413,included,
+37403059,included,
+24901487,included,
+12598451,included,
+31259862,included,
+24229439,included,
+41844139,included,
+31673632,included,
+28225799,included,
+29017463,included,
+22535331,included,
+17620576,included,
+16249475,included,
+12488253,included,
+10636413,included,
+32699049,included,
+31902023,included,
+30607809,included,
+20685077,included,
+19098042,included,
+15899457,included,
+29392638,included,
+39073343,included,
+37298028,included,
+24398095,included,
+39985016,included,
+34033298,included,
+32128637,included,
+29740784,included,
+28451530,included,
+26630653,included,
+22537275,included,
+12598432,included,
+10511027,included,
+27050672,included,
+33124153,included,
+19929654,included,
+37724287,included,
+41686418,included,
+38226448,included,
+37046915,included,
+36010145,included,
+30658988,included,
+18243152,included,
+31191178,included,
+21570045,included,
+23054488,included,
+18780253,included,
+17057800,included,
+36580313,included,
+30361275,included,
+31201795,included,
+22321801,included,
+21840602,included,
+39089062,included,
+39133678,included,
+39262686,included,
+36177426,included,
+31515429,included,
+27196876,included,
+26379209,included,
+26040222,included,
+24768238,included,
+25133670,included,
+23628757,included,
+23851303,included,
+18972222,included,
+17613846,included,
+16836777,included,
+12799229,included,
+11222340,included,
+11297474,included,
+10959467,included,
+11035553,included,
+22909264,full text needed,Abstract reports only P values across visual-field quartiles
+15349514,full text needed,Glaucoma-specific HUI value not in abstract
+10537955,full text needed,Glaucoma-specific HUI3 value not in abstract
+40847350,full text needed,Utility means not reported in abstract
+26956897,full text needed,"Multi-disease valuation; eye-related states, if any, are not in the abstract"
+32080789,full text needed,Effect sizes only; utility levels not in abstract
+22205611,full text needed,EQ-5D values by DR/DME grade not in abstract
+15936470,full text needed,Abstract gives diabetes utility only; DR-grade values need full text
+39929980,full text needed,Only EQ-5D VAS reported; index value needs full text
+36385360,full text needed,EQ-5D and 15D by VA group not in abstract
+28371261,full text needed,EQ-5D-3L by VI level not in abstract
+10826549,full text needed,Only a range (0.47–0.71) across VA groups in abstract
+42043757,excluded,"No utility value reported (trial, EQ-5D-5L not significant)"
+39402234,excluded,No utility value reported
+35852996,excluded,Psychometric validation of a questionnaire; no HSUV
+25582994,excluded,Psychometric validation in Sjögren's; no HSUV
+41802551,excluded,Off-topic ('model utility' in machine learning)
+36877820,excluded,Off-topic (usability of decision-support tool)
+34006510,excluded,Methods (MID of VFQ-25); no HSUV
+33444381,excluded,Off-topic (teleconsultation)
+33344190,excluded,Off-topic (diagnostic utility of OCT)
+34285433,excluded,No utility value reported
+30273622,excluded,No utility value reported (UKGTS PROMs)
+30770751,excluded,Off-topic (structure–function imaging)
+31233453,excluded,Path coefficients only; no HSUV
+29370022,excluded,Off-topic (self-tonometry)
+20164800,excluded,Pain intervention after AACG attack (n=19); treatment effect only
+11923247,excluded,Correlations only; no HSUV
+42319642,excluded,Review
+42580097,excluded,Off-topic (pharmacokinetics)
+40877835,excluded,Off-topic (prediction nomogram)
+40975744,excluded,Off-topic (imaging sensitivity)
+40895634,excluded,Off-topic (diagnostic utility of a biomarker)
+38141059,excluded,Off-topic (imaging biomarker)
+28913998,excluded,No utility value reported
+39691138,excluded,Off-topic (diagnostic device)
+20080915,excluded,Population: rheumatic diseases
+20935280,excluded,Measurement-error methods; no HSUV
+19473334,excluded,Mode-of-administration effects; no HSUV
+28007107,excluded,Percentage changes only; no utility value
+11401045,excluded,Correlations only; no HSUV
+39849402,excluded,Off-topic (tear metabolomics)
+39998975,excluded,Off-topic (in vitro drug study)
+27171131,excluded,No utility value reported
+18665811,excluded,Animal study
+41254995,excluded,Off-topic (air pollution and DR prevalence)
+41846906,excluded,Off-topic (prediction nomogram)
+42851381,excluded,Off-topic (nutritional biomarker)
+40734942,excluded,Off-topic (prediction nomogram)
+40969370,excluded,Off-topic (treatment-response nomogram)
+36449771,excluded,Off-topic (platelet indices)
+29563821,excluded,DR pooled with other diabetic complications
+24568628,excluded,Mapping algorithm performance only
+23347793,excluded,Psychometric validation; no HSUV
+34413492,excluded,Off-topic (myopia prevalence)
+25783952,excluded,Off-topic (refractive error prevalence)
+40679529,excluded,Off-topic (survival nomogram)
+34619949,excluded,Off-topic (fundus findings)
+42871061,excluded,Off-topic (AI segmentation)
+32400047,excluded,Population: vestibular disorders
+38341128,excluded,Mapping coefficient only; no HSUV
+42652619,excluded,Population: psoriatic arthritis
+31665462,excluded,Comorbidity questionnaire validation
+32224157,excluded,Mixed immune-mediated diseases; no uveitis-specific value
+41249669,excluded,Off-topic (radiology device)
+41732778,excluded,Off-topic (federated learning)
+42091213,excluded,Off-topic (concussion screening)
+42183399,excluded,"CarerQol care-related wellbeing, not a health utility"
+40706133,excluded,Mapping study; no level values
+41019429,excluded,Off-topic (cardiovascular risk)
+41027031,excluded,Off-topic (cardiac imaging)
+41077799,excluded,Off-topic (ICU pain assessment)
+41162487,excluded,Off-topic (rehabilitation nomogram)
+35145163,excluded,Regression statistics only
+33621285,excluded,Off-topic (chemistry)
+34824838,excluded,Off-topic (surgical training)
+30447226,excluded,Narrative review restating published values
+29765104,excluded,Off-topic (falls)
+26686788,excluded,Discriminatory power only; no levels
+18484696,excluded,Oral and ocular dryness combined
+18780254,excluded,Instrument development methods
+12498507,excluded,Correlations only; no HSUV

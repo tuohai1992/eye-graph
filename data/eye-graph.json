@@ -1,0 +1,4139 @@
+{
+ "meta": {
+  "title": "Eye HSUV Graph",
+  "built": "2026-11-01",
+  "source": "Europe PMC (MEDLINE records with abstracts)",
+  "scope": "Health-state utility values across eye diseases",
+  "queries": {
+   "glaucoma": "(glaucoma OR ocular hypertension) in title/abstract",
+   "dry_eye": "(dry eye OR keratoconjunctivitis sicca OR Sjogren) in title/abstract",
+   "myopia": "(myopia OR myopic) in title/abstract",
+   "utility_block": "AND (utility OR utilities OR EQ-5D OR EQ5D OR time trade-off OR standard gamble OR HUI3 OR SF-6D OR QALY), HAS_ABSTRACT, SRC:MED"
+  },
+  "flow": [
+   {
+    "stage": "Retrieved: all eye conditions × utility terms (deduplicated)",
+    "n": 9060
+   },
+   {
+    "stage": "Excluded: letter / comment / editorial / case report / erratum",
+    "n": 570
+   },
+   {
+    "stage": "Excluded: not about an eye condition (rule)",
+    "n": 2119
+   },
+   {
+    "stage": "Excluded: no utility-type number in title or abstract (rule)",
+    "n": 6099
+   },
+   {
+    "stage": "Set aside: cost-effectiveness / model-based (next phase)",
+    "n": 82
+   },
+   {
+    "stage": "Set aside: systematic reviews / meta-analyses",
+    "n": 13
+   },
+   {
+    "stage": "Screened by reviewer (abstract)",
+    "n": 177
+   },
+   {
+    "stage": "Excluded at abstract review",
+    "n": 70
+   },
+   {
+    "stage": "Full-text needed (no extractable value in abstract)",
+    "n": 12
+   },
+   {
+    "stage": "Included with extracted values",
+    "n": 95
+   }
+  ]
+ },
+ "studies": [
+  {
+   "id": "38471750",
+   "doi": "10.1136/bjo-2023-324677",
+   "author": "Kai JY",
+   "year": 2024,
+   "title": "Dry eye symptoms and health-related quality of life among Chinese individuals: a national-based study",
+   "journal": "Br J Ophthalmol",
+   "ind": "dry_eye",
+   "country": "China",
+   "n": 21916,
+   "design": "Cross-sectional, nationwide",
+   "population": "General population with/without dry eye symptoms (OSDI-6)",
+   "respondent": "Patients"
+  },
+  {
+   "id": "39695504",
+   "doi": "10.1186/s12886-024-03808-9",
+   "author": "Tantichariyangkul P",
+   "year": 2024,
+   "title": "The health-related quality of life in patients with dry eye syndrome: a cross-sectional study in Thailand",
+   "journal": "BMC Ophthalmol",
+   "ind": "dry_eye",
+   "country": "Thailand",
+   "n": null,
+   "design": "Cross-sectional, single hospital",
+   "population": "Dry eye syndrome patients by severity and cause",
+   "respondent": "Patients"
+  },
+  {
+   "id": "35940854",
+   "doi": "10.1136/bjo-2022-321246",
+   "author": "Lim EWL",
+   "year": 2023,
+   "title": "Relationship between dry eye symptoms and quality of life: associations and mediation analysis",
+   "journal": "Br J Ophthalmol",
+   "ind": "dry_eye",
+   "country": "Singapore",
+   "n": 7707,
+   "design": "Cross-sectional, population-based",
+   "population": "Adults with/without dry eye symptoms",
+   "respondent": "Patients"
+  },
+  {
+   "id": "32277941",
+   "doi": "10.1016/j.ajo.2020.03.044",
+   "author": "Dana R",
+   "year": 2020,
+   "title": "Patient-Reported Burden of Dry Eye Disease in the United States: Results of an Online Cross-Sectional Survey",
+   "journal": "Am J Ophthalmol",
+   "ind": "dry_eye",
+   "country": "United States",
+   "n": 2009,
+   "design": "Online cross-sectional survey",
+   "population": "Adults with (n=1003) or without (n=1006) self-reported DED",
+   "respondent": "Patients"
+  },
+  {
+   "id": "29417445",
+   "doi": "10.1007/s10792-018-0847-9",
+   "author": "Xue W",
+   "year": 2019,
+   "title": "A rating scale is a proper method to evaluate changes in quality of life due to dry eye symptoms",
+   "journal": "Int Ophthalmol",
+   "ind": "dry_eye",
+   "country": null,
+   "n": 104,
+   "design": "Cross-sectional, outpatients",
+   "population": "Dry eye outpatients, VA 20/25 or better in worse eye",
+   "respondent": "Patients"
+  },
+  {
+   "id": "12867401",
+   "doi": "10.1016/s0161-6420(03)00462-7",
+   "author": "Schiffman RM",
+   "year": 2003,
+   "title": "Utility assessment among patients with dry eye disease",
+   "journal": "Ophthalmology",
+   "ind": "dry_eye",
+   "country": "United States",
+   "n": 56,
+   "design": "Survey, single health system",
+   "population": "Mild, moderate or severe dry eye",
+   "respondent": "Patients"
+  },
+  {
+   "id": "42266519",
+   "doi": "10.4103/ijcm.ijcm_805_24",
+   "author": "Purohit N",
+   "year": 2026,
+   "title": "Assessing Quality of life of Patients with Cataract and Glaucoma using Generic and Vision-Specific Instruments in India",
+   "journal": "Indian J Community Med",
+   "ind": "glaucoma",
+   "country": "India",
+   "n": 297,
+   "design": "Facility-based survey",
+   "population": "Glaucoma outpatients (plus 244 cataract)",
+   "respondent": "Patients"
+  },
+  {
+   "id": "37059392",
+   "doi": "10.1016/j.jval.2023.04.001",
+   "author": "Kennedy K",
+   "year": 2023,
+   "title": "Resurrecting Multiattribute Utility Function: Developing a Value Set for Health Utility for Glaucoma",
+   "journal": "Value Health",
+   "ind": "glaucoma",
+   "country": "United States",
+   "n": 416,
+   "design": "Online valuation survey (SG, VAS)",
+   "population": "US general population valuing HUG-5 states",
+   "respondent": "General public"
+  },
+  {
+   "id": "33658759",
+   "doi": "10.2147/opth.s300226",
+   "author": "Rojananuangnit K",
+   "year": 2021,
+   "title": "Utility Index and Patient-Reported Outcome Measures in Glaucomatous Patients Comparing with Normal Participants",
+   "journal": "Clin Ophthalmol",
+   "ind": "glaucoma",
+   "country": "Thailand",
+   "n": 174,
+   "design": "Case-control",
+   "population": "127 glaucoma vs 47 normal",
+   "respondent": "Patients"
+  },
+  {
+   "id": "29847608",
+   "doi": "10.1371/journal.pone.0197581",
+   "author": "Choi S",
+   "year": 2018,
+   "title": "Utility values for glaucoma patients in Korea",
+   "journal": "PLoS One",
+   "ind": "glaucoma",
+   "country": "South Korea",
+   "n": 833,
+   "design": "National survey (KNHANES), regression",
+   "population": "Glaucoma patients identified by eye examination",
+   "respondent": "Patients"
+  },
+  {
+   "id": "25415642",
+   "doi": "10.1097/ijg.0000000000000056",
+   "author": "Zhang S",
+   "year": 2015,
+   "title": "Utility Analysis of Vision-related Quality of Life in Patients With Glaucoma and Different Perceptions from Ophthalmologists",
+   "journal": "J Glaucoma",
+   "ind": "glaucoma",
+   "country": "China",
+   "n": 87,
+   "design": "Cross-sectional interview",
+   "population": "Glaucoma patients; 26 ophthalmologists rating hypothetical states",
+   "respondent": "Patients; clinicians"
+  },
+  {
+   "id": "24648717",
+   "doi": "10.2147/opth.s60105",
+   "author": "Paletta Guedes RA",
+   "year": 2014,
+   "title": "Utility values for glaucoma in Brazil and their correlation with visual function",
+   "journal": "Clin Ophthalmol",
+   "ind": "glaucoma",
+   "country": "Brazil",
+   "n": 227,
+   "design": "Cross-sectional, consecutive patients",
+   "population": "POAG",
+   "respondent": "Patients"
+  },
+  {
+   "id": "23614930",
+   "doi": "10.1159/000350553",
+   "author": "Wolfram C",
+   "year": 2013,
+   "title": "Health- and vision-related quality of life in patients with ocular hypertension or primary open-angle glaucoma",
+   "journal": "Ophthalmologica",
+   "ind": "glaucoma",
+   "country": "Germany",
+   "n": 154,
+   "design": "Multicentre cross-sectional",
+   "population": "OHT and early/moderate/advanced POAG",
+   "respondent": "Patients"
+  },
+  {
+   "id": "22729099",
+   "doi": "10.18926/amo/48558",
+   "author": "Kishimoto F",
+   "year": 2012,
+   "title": "Time trade-off utility analysis for surgical intervention in comitant strabismus, glaucoma, and cataract",
+   "journal": "Acta Med Okayama",
+   "ind": "glaucoma",
+   "country": null,
+   "n": 26,
+   "design": "Pre/post surgery",
+   "population": "Surgically treated glaucoma (plus cataract, strabismus)",
+   "respondent": "Patients"
+  },
+  {
+   "id": "19208679",
+   "doi": "10.1136/bjo.2008.139295",
+   "author": "Sun X",
+   "year": 2009,
+   "title": "Utility assessment among patients of primary angle closure/glaucoma in China: a preliminary study",
+   "journal": "Br J Ophthalmol",
+   "ind": "glaucoma",
+   "country": "China",
+   "n": null,
+   "design": "Cross-sectional interview",
+   "population": "Primary angle closure / PACG",
+   "respondent": "Patients"
+  },
+  {
+   "id": "17826833",
+   "doi": "10.1016/j.ophtha.2007.06.008",
+   "author": "Lee BS",
+   "year": 2008,
+   "title": "The impact of anchor point on utilities for 5 common ophthalmic diseases",
+   "journal": "Ophthalmology",
+   "ind": "glaucoma",
+   "country": null,
+   "n": 99,
+   "design": "Cross-sectional preference study",
+   "population": "Glaucoma subgroup of 434 eye patients",
+   "respondent": "Patients"
+  },
+  {
+   "id": "16170108",
+   "doi": "10.1136/bjo.2005.068858",
+   "author": "Gupta V",
+   "year": 2005,
+   "title": "Utility values among glaucoma patients: an impact on the quality of life",
+   "journal": "Br J Ophthalmol",
+   "ind": "glaucoma",
+   "country": "India",
+   "n": 105,
+   "design": "Cross-sectional",
+   "population": "Primary glaucoma, at least 12 months duration",
+   "respondent": "Patients"
+  },
+  {
+   "id": "16276277",
+   "doi": "10.1097/01.ijg.0000185434.08051.82",
+   "author": "Saw SM",
+   "year": 2005,
+   "title": "Utility values in Singapore Chinese adults with primary open-angle and primary angle-closure glaucoma",
+   "journal": "J Glaucoma",
+   "ind": "glaucoma",
+   "country": "Singapore",
+   "n": 213,
+   "design": "Cross-sectional, tertiary centre",
+   "population": "POAG or PACG",
+   "respondent": "Patients"
+  },
+  {
+   "id": "11797316",
+   "doi": null,
+   "author": "Jampel HD",
+   "year": 2001,
+   "title": "Glaucoma patients' assessment of their visual function and quality of life",
+   "journal": "Trans Am Ophthalmol Soc",
+   "ind": "glaucoma",
+   "country": null,
+   "n": 237,
+   "design": "Cross-sectional",
+   "population": "Glaucoma patients and suspects",
+   "respondent": "Patients"
+  },
+  {
+   "id": "42493702",
+   "doi": "10.1007/s11136-026-04344-3",
+   "author": "Luo C",
+   "year": 2026,
+   "title": "Mapping the NEI-VFQ-25 scores to the EQ-5D-Y-3L and CHU-9D utility values among adolescents with myopia",
+   "journal": "Qual Life Res",
+   "ind": "myopia",
+   "country": "China",
+   "n": 2198,
+   "design": "Mapping study",
+   "population": "Adolescents with myopia",
+   "respondent": "Patients"
+  },
+  {
+   "id": "41068823",
+   "doi": "10.1186/s12889-025-24587-y",
+   "author": "Yang X",
+   "year": 2025,
+   "title": "Health-related quality of life and its associated factors among high school students with myopia in China",
+   "journal": "BMC Public Health",
+   "ind": "myopia",
+   "country": "China",
+   "n": 2198,
+   "design": "Cross-sectional, 7 high schools",
+   "population": "High-school students with myopia",
+   "respondent": "Patients"
+  },
+  {
+   "id": "37024413",
+   "doi": "10.1016/j.clae.2023.101839",
+   "author": "Yang Y",
+   "year": 2023,
+   "title": "Health-related quality of life for children using orthokeratology (OK), peripheral lenslet designed (PLD) and single-vision (SV) spectacles: based on CHU9D",
+   "journal": "Cont Lens Anterior Eye",
+   "ind": "myopia",
+   "country": null,
+   "n": 648,
+   "design": "Cross-sectional",
+   "population": "Myopic children by correction type",
+   "respondent": "Patients"
+  },
+  {
+   "id": "37403059",
+   "doi": "10.1186/s12955-023-02150-w",
+   "author": "Dou L",
+   "year": 2023,
+   "title": "Psychometric properties and comparison of four health utility approaches among myopia patients in China",
+   "journal": "Health Qual Life Outcomes",
+   "ind": "myopia",
+   "country": "China",
+   "n": null,
+   "design": "Cross-sectional, convenience sample",
+   "population": "Myopia patients at one eye hospital",
+   "respondent": "Patients"
+  },
+  {
+   "id": "24901487",
+   "doi": "10.1097/opx.0000000000000299",
+   "author": "Li S",
+   "year": 2014,
+   "title": "Utility values among myopic patients in mainland China",
+   "journal": "Optom Vis Sci",
+   "ind": "myopia",
+   "country": "China",
+   "n": 442,
+   "design": "Cross-sectional",
+   "population": "Adults 17-44 y scheduled for refractive surgery",
+   "respondent": "Patients"
+  },
+  {
+   "id": "12598451",
+   "doi": "10.1136/bjo.87.3.341",
+   "author": "Saw SM",
+   "year": 2003,
+   "title": "Utility values and myopia in teenage school students",
+   "journal": "Br J Ophthalmol",
+   "ind": "myopia",
+   "country": "Singapore",
+   "n": 699,
+   "design": "Cross-sectional, 2 high schools",
+   "population": "Myopic students aged 15-18",
+   "respondent": "Patients"
+  },
+  {
+   "id": "31259862",
+   "doi": "10.1097/ico.0000000000002042",
+   "author": "Al-Hayouti H",
+   "year": 2019,
+   "title": "Automated Ocular Surface Image Analysis and Health-Related Quality of Life Utility Tool to Measure Blepharokeratoconjunctivitis Activity in Children",
+   "journal": "Cornea",
+   "ind": "allergy",
+   "country": null,
+   "n": 63,
+   "design": "Case-control",
+   "population": "Children with blepharokeratoconjunctivitis vs controls",
+   "respondent": "Patients"
+  },
+  {
+   "id": "24229439",
+   "doi": "10.1186/1939-4551-6-15",
+   "author": "Petersen KD",
+   "year": 2013,
+   "title": "Patient related outcomes in a real life prospective follow up study: Allergen immunotherapy increase quality of life and reduce sick days",
+   "journal": "World Allergy Organ J",
+   "ind": "allergy",
+   "country": null,
+   "n": 248,
+   "design": "Prospective cohort",
+   "population": "Allergic rhinoconjunctivitis ± asthma on immunotherapy",
+   "respondent": "Patients"
+  },
+  {
+   "id": "41844139",
+   "doi": "10.3346/jkms.2026.41.e63",
+   "author": "Kim Y",
+   "year": 2026,
+   "title": "Risk Factors and Quality of Life in Patients With Geographic Atrophy, a Late Stage of Age-Related Macular Degeneration: Findings From the Korea National Health and Nutrition Examination Survey",
+   "journal": "J Korean Med Sci",
+   "ind": "amd",
+   "country": "South Korea",
+   "n": 15030,
+   "design": "National survey (KNHANES)",
+   "population": "Geographic atrophy (n=36), wet AMD (n=94), early and no AMD",
+   "respondent": "Patients"
+  },
+  {
+   "id": "31673632",
+   "doi": "10.1136/bmjophth-2019-000353",
+   "author": "Jelin E",
+   "year": 2019,
+   "title": "Patient-reported outcome measures in the management of neovascular age-related macular degeneration: a 1-year prospective study",
+   "journal": "BMJ Open Ophthalmol",
+   "ind": "amd",
+   "country": null,
+   "n": 197,
+   "design": "Prospective cohort",
+   "population": "Neovascular AMD starting treatment",
+   "respondent": "Patients"
+  },
+  {
+   "id": "28225799",
+   "doi": "10.1371/journal.pone.0169816",
+   "author": "Visser MS",
+   "year": 2017,
+   "title": "SF-6D utility values for the better- and worse-seeing eye for health states based on the Snellen equivalent in patients with age-related macular degeneration",
+   "journal": "PLoS One",
+   "ind": "amd",
+   "country": null,
+   "n": 191,
+   "design": "Cohort, health-state filling",
+   "population": "AMD patients aged 65+, by better/worse eye Snellen",
+   "respondent": "Patients"
+  },
+  {
+   "id": "29017463",
+   "doi": "10.1186/s12877-017-0619-9",
+   "author": "Péntek M",
+   "year": 2017,
+   "title": "Subjective health expectations of patients with age-related macular degeneration treated with antiVEGF drugs",
+   "journal": "BMC Geriatr",
+   "ind": "amd",
+   "country": null,
+   "n": null,
+   "design": "Cross-sectional, 2 centres",
+   "population": "AMD on anti-VEGF",
+   "respondent": "Patients"
+  },
+  {
+   "id": "22535331",
+   "doi": "10.1136/bjophthalmol-2011-301201",
+   "author": "Finger RP",
+   "year": 2012,
+   "title": "Patients' preferences in treatment for neovascular age-related macular degeneration in clinical routine",
+   "journal": "Br J Ophthalmol",
+   "ind": "amd",
+   "country": null,
+   "n": 55,
+   "design": "Pre/post treatment",
+   "population": "Treatment-naive nAMD, ranibizumab loading",
+   "respondent": "Patients"
+  },
+  {
+   "id": "17620576",
+   "doi": "10.1001/archopht.125.7.945",
+   "author": "Sahel JA",
+   "year": 2007,
+   "title": "Health-related quality of life and utility in patients with age-related macular degeneration",
+   "journal": "Arch Ophthalmol",
+   "ind": "amd",
+   "country": "France; Germany; Italy",
+   "n": null,
+   "design": "Multicentre cross-sectional",
+   "population": "Wet AMD by better-eye VA",
+   "respondent": "Patients"
+  },
+  {
+   "id": "16249475",
+   "doi": "10.1167/iovs.05-0072",
+   "author": "Espallargues M",
+   "year": 2005,
+   "title": "The impact of age-related macular degeneration on health status utility values",
+   "journal": "Invest Ophthalmol Vis Sci",
+   "ind": "amd",
+   "country": null,
+   "n": null,
+   "design": "Cross-sectional, teaching hospital",
+   "population": "Unilateral or bilateral AMD",
+   "respondent": "Patients"
+  },
+  {
+   "id": "12488253",
+   "doi": "10.1136/bjo.87.1.8",
+   "author": "Stein JD",
+   "year": 2003,
+   "title": "Quality of life with macular degeneration: perceptions of patients, clinicians, and community members",
+   "journal": "Br J Ophthalmol",
+   "ind": "amd",
+   "country": null,
+   "n": 115,
+   "design": "Cross-sectional",
+   "population": "AMD patients; clinicians and healthy volunteers rating AMD",
+   "respondent": "Patients; clinicians; general public"
+  },
+  {
+   "id": "10636413",
+   "doi": "10.1001/archopht.118.1.47",
+   "author": "Brown GC",
+   "year": 2000,
+   "title": "Utility values and age-related macular degeneration",
+   "journal": "Arch Ophthalmol",
+   "ind": "amd",
+   "country": null,
+   "n": 80,
+   "design": "Cross-sectional",
+   "population": "AMD with VA 20/40 or worse in at least one eye",
+   "respondent": "Patients"
+  },
+  {
+   "id": "32699049",
+   "doi": "10.1136/bjophthalmol-2020-316311",
+   "author": "Stanojcic N",
+   "year": 2021,
+   "title": "A randomised controlled trial comparing femtosecond laser-assisted cataract surgery versus conventional phacoemulsification surgery: 12-month results",
+   "journal": "Br J Ophthalmol",
+   "ind": "cataract",
+   "country": null,
+   "n": 400,
+   "design": "RCT",
+   "population": "Cataract surgery: FLACS vs phacoemulsification",
+   "respondent": "Patients"
+  },
+  {
+   "id": "31902023",
+   "doi": "10.1007/s10198-019-01156-w",
+   "author": "Gandhi M",
+   "year": 2020,
+   "title": "A vision 'bolt-on' increases the responsiveness of EQ-5D: preliminary evidence from a study of cataract surgery",
+   "journal": "Eur J Health Econ",
+   "ind": "cataract",
+   "country": null,
+   "n": 63,
+   "design": "Pre/post surgery",
+   "population": "Cataract surgery patients",
+   "respondent": "Patients"
+  },
+  {
+   "id": "30607809",
+   "doi": "10.1007/s40271-018-00354-7",
+   "author": "Gandhi M",
+   "year": 2019,
+   "title": "EQ-5D-5L is More Responsive than EQ-5D-3L to Treatment Benefit of Cataract Surgery",
+   "journal": "Patient",
+   "ind": "cataract",
+   "country": null,
+   "n": 148,
+   "design": "Pre/post surgery",
+   "population": "Cataract surgery patients",
+   "respondent": "Patients"
+  },
+  {
+   "id": "20685077",
+   "doi": "10.1016/j.jclinepi.2010.04.010",
+   "author": "Kaplan RM",
+   "year": 2011,
+   "title": "Five preference-based indexes in cataract and heart failure patients were not equally responsive to change",
+   "journal": "J Clin Epidemiol",
+   "ind": "cataract",
+   "country": "United States",
+   "n": 376,
+   "design": "Longitudinal cohort",
+   "population": "Adults undergoing cataract surgery",
+   "respondent": "Patients"
+  },
+  {
+   "id": "19098042",
+   "doi": "10.1136/bjo.2007.136150",
+   "author": "Black N",
+   "year": 2009,
+   "title": "Is there overutilisation of cataract surgery in England?",
+   "journal": "Br J Ophthalmol",
+   "ind": "cataract",
+   "country": "United Kingdom",
+   "n": 861,
+   "design": "Prospective cohort, 10 providers",
+   "population": "First or second eye cataract surgery",
+   "respondent": "Patients"
+  },
+  {
+   "id": "15899457",
+   "doi": "10.1016/j.jcrs.2004.08.043",
+   "author": "Saw SM",
+   "year": 2005,
+   "title": "Utility assessment among cataract surgery patients",
+   "journal": "J Cataract Refract Surg",
+   "ind": "cataract",
+   "country": "Singapore",
+   "n": 217,
+   "design": "Cross-sectional, tertiary hospital",
+   "population": "Chinese patients scheduled for cataract surgery",
+   "respondent": "Patients"
+  },
+  {
+   "id": "29392638",
+   "doi": "10.1007/s10792-018-0828-z",
+   "author": "Xue W",
+   "year": 2019,
+   "title": "Long-term impact of dry eye symptoms on vision-related quality of life after phacoemulsification surgery",
+   "journal": "Int Ophthalmol",
+   "ind": "cataract",
+   "country": null,
+   "n": 101,
+   "design": "Pre/post surgery",
+   "population": "Age-related cataract, phacoemulsification + IOL",
+   "respondent": "Patients"
+  },
+  {
+   "id": "39073343",
+   "doi": "10.1097/j.jcrs.0000000000001530",
+   "author": "Naderi K",
+   "year": 2024,
+   "title": "Effects of axis-flip of the refractive cylinder on vision and patient-reported outcome measures after toric intraocular lens implantation",
+   "journal": "J Cataract Refract Surg",
+   "ind": "cataract",
+   "country": "United Kingdom",
+   "n": null,
+   "design": "Post hoc analysis of RCT",
+   "population": "Toric IOL implantation, with/without axis flip",
+   "respondent": "Patients"
+  },
+  {
+   "id": "37298028",
+   "doi": "10.3390/jcm12113833",
+   "author": "Marx-Gross S",
+   "year": 2023,
+   "title": "Impact of Cross-Linking Procedure on Perioperative Quality of Life in Keratoconus Patients",
+   "journal": "J Clin Med",
+   "ind": "cornea",
+   "country": null,
+   "n": null,
+   "design": "Prospective monocentric",
+   "population": "Progressive or stable keratoconus, cross-linking",
+   "respondent": "Patients"
+  },
+  {
+   "id": "24398095",
+   "doi": "10.1167/iovs.13-12929",
+   "author": "Sahebjada S",
+   "year": 2014,
+   "title": "Impact of keratoconus in the better eye and the worse eye on vision-related quality of life",
+   "journal": "Invest Ophthalmol Vis Sci",
+   "ind": "cornea",
+   "country": null,
+   "n": 170,
+   "design": "Cross-sectional",
+   "population": "Keratoconus",
+   "respondent": "Patients"
+  },
+  {
+   "id": "39985016",
+   "doi": "10.1186/s12955-025-02340-8",
+   "author": "Purohit N",
+   "year": 2025,
+   "title": "Measuring the quality of life of patients with diabetic retinopathy in northern India: a comparison of generic and vision specific instruments",
+   "journal": "Health Qual Life Outcomes",
+   "ind": "dr",
+   "country": "India",
+   "n": null,
+   "design": "Cross-sectional",
+   "population": "Diabetic retinopathy",
+   "respondent": "Patients"
+  },
+  {
+   "id": "34033298",
+   "doi": "10.20945/2359-3997000000223",
+   "author": "Ben ÂJ",
+   "year": 2021,
+   "title": "Health-related quality of life associated with diabetic retinopathy in patients at a public primary care service in southern Brazil",
+   "journal": "Arch Endocrinol Metab",
+   "ind": "dr",
+   "country": "Brazil",
+   "n": 206,
+   "design": "Cross-sectional, primary care",
+   "population": "Type 2 diabetes screened by teleophthalmology",
+   "respondent": "Patients"
+  },
+  {
+   "id": "32128637",
+   "doi": "10.1007/s10198-020-01167-y",
+   "author": "Yfantopoulos J",
+   "year": 2020,
+   "title": "Health-related quality of life and health utilities in insulin-treated type 2 diabetes: the impact of related comorbidities/complications",
+   "journal": "Eur J Health Econ",
+   "ind": "dr",
+   "country": "Greece",
+   "n": 938,
+   "design": "Epidemiological study",
+   "population": "Insulin-treated type 2 diabetes",
+   "respondent": "Patients"
+  },
+  {
+   "id": "29740784",
+   "doi": "10.1007/s11136-018-1876-6",
+   "author": "Pan CW",
+   "year": 2018,
+   "title": "Diabetic retinopathy and health-related quality of life among Chinese with known type 2 diabetes mellitus",
+   "journal": "Qual Life Res",
+   "ind": "dr",
+   "country": "China",
+   "n": 913,
+   "design": "Community survey",
+   "population": "Type 2 diabetes with/without DR",
+   "respondent": "Patients"
+  },
+  {
+   "id": "28451530",
+   "doi": null,
+   "author": "Alinia C",
+   "year": 2017,
+   "title": "Impact of Diabetic Retinopathy on Health-related Quality of Life in Iranian Diabetics",
+   "journal": "Iran J Public Health",
+   "ind": "dr",
+   "country": "Iran",
+   "n": 150,
+   "design": "Cross-sectional, tertiary",
+   "population": "Untreated diabetic retinopathy",
+   "respondent": "Patients"
+  },
+  {
+   "id": "26630653",
+   "doi": "10.1371/journal.pone.0143678",
+   "author": "Zhu X",
+   "year": 2015,
+   "title": "Disparities between Ophthalmologists and Patients in Estimating Quality of Life Associated with Diabetic Retinopathy",
+   "journal": "PLoS One",
+   "ind": "dr",
+   "country": "China",
+   "n": 109,
+   "design": "Cross-sectional",
+   "population": "Diabetic retinopathy; 2 ophthalmologists",
+   "respondent": "Patients"
+  },
+  {
+   "id": "22537275",
+   "doi": "10.1111/j.1444-0938.2012.00742.x",
+   "author": "Fenwick EK",
+   "year": 2012,
+   "title": "Assessing disutility associated with diabetic retinopathy, diabetic macular oedema and associated visual impairment using the Vision and Quality of Life Index",
+   "journal": "Clin Exp Optom",
+   "ind": "dr",
+   "country": "Australia",
+   "n": 203,
+   "design": "Cross-sectional",
+   "population": "Diabetes with DR/DME",
+   "respondent": "Patients"
+  },
+  {
+   "id": "12598432",
+   "doi": "10.1136/bjo.87.3.259",
+   "author": "Sharma S",
+   "year": 2003,
+   "title": "Utilities associated with diabetic retinopathy: results from a Canadian sample",
+   "journal": "Br J Ophthalmol",
+   "ind": "dr",
+   "country": "Canada",
+   "n": null,
+   "design": "Cross-sectional",
+   "population": "Diabetic retinopathy, tertiary care",
+   "respondent": "Patients"
+  },
+  {
+   "id": "10511027",
+   "doi": "10.1016/s0002-9394(99)00146-4",
+   "author": "Brown MM",
+   "year": 1999,
+   "title": "Utility values and diabetic retinopathy",
+   "journal": "Am J Ophthalmol",
+   "ind": "dr",
+   "country": null,
+   "n": 100,
+   "design": "Cross-sectional",
+   "population": "DR with VA 20/40 or worse in at least one eye",
+   "respondent": "Patients"
+  },
+  {
+   "id": "27050672",
+   "doi": null,
+   "author": "Lee J",
+   "year": 2016,
+   "title": "The EULAR Sjögren's Syndrome Patient-Reported Index is an independent determinant of health-related utility values of Korean patients with primary Sjögren's syndrome",
+   "journal": "Clin Exp Rheumatol",
+   "ind": "dry_eye",
+   "country": "South Korea",
+   "n": 178,
+   "design": "Prospective cohort",
+   "population": "Primary Sjögren's syndrome",
+   "respondent": "Patients"
+  },
+  {
+   "id": "33124153",
+   "doi": "10.1111/aos.14657",
+   "author": "Martel A",
+   "year": 2021,
+   "title": "Phantom eye pain: a multicentric study in 100 patients",
+   "journal": "Acta Ophthalmol",
+   "ind": "other",
+   "country": null,
+   "n": 115,
+   "design": "Questionnaire, 3 oculoplastic units",
+   "population": "After enucleation or evisceration",
+   "respondent": "Patients"
+  },
+  {
+   "id": "19929654",
+   "doi": "10.3109/01676830903104702",
+   "author": "Hirneiss C",
+   "year": 2009,
+   "title": "Utility values in patients with acquired anophthalmus",
+   "journal": "Orbit",
+   "ind": "other",
+   "country": null,
+   "n": 23,
+   "design": "Cross-sectional",
+   "population": "Acquired anophthalmia, good fellow eye",
+   "respondent": "Patients"
+  },
+  {
+   "id": "37724287",
+   "doi": "10.18240/ijo.2023.09.23",
+   "author": "Gao JG",
+   "year": 2023,
+   "title": "Prevalence of color vision deficiency among Chinese college students and their quality of life",
+   "journal": "Int J Ophthalmol",
+   "ind": "other",
+   "country": "China",
+   "n": 317,
+   "design": "Cross-sectional",
+   "population": "College students with colour vision deficiency",
+   "respondent": "Patients"
+  },
+  {
+   "id": "41686418",
+   "doi": "10.1007/s12325-025-03485-0",
+   "author": "Durno NS",
+   "year": 2026,
+   "title": "X-Linked Retinitis Pigmentosa (XLRP): An Investigation of the Impact of XLRP on Health-Related Quality of Life of Carers in Great Britain",
+   "journal": "Adv Ther",
+   "ind": "ird",
+   "country": "United Kingdom",
+   "n": null,
+   "design": "Vignette TTO valuation",
+   "population": "Carers of people with X-linked RP (vignettes)",
+   "respondent": "General public"
+  },
+  {
+   "id": "38226448",
+   "doi": "10.1111/aos.16634",
+   "author": "McGuinness MB",
+   "year": 2024,
+   "title": "EQ-5D-5L health utility scores in Australian adults with inherited retinal diseases: A cross-sectional survey",
+   "journal": "Acta Ophthalmol",
+   "ind": "ird",
+   "country": "Australia",
+   "n": 647,
+   "design": "Online survey",
+   "population": "Adults with inherited retinal disease",
+   "respondent": "Patients"
+  },
+  {
+   "id": "37046915",
+   "doi": "10.3390/healthcare11070988",
+   "author": "Watanabe K",
+   "year": 2023,
+   "title": "Economic Impacts and Quality of Life for Caregivers of Patients with Retinitis Pigmentosa: A Cross-Sectional Japanese Study",
+   "journal": "Healthcare",
+   "ind": "ird",
+   "country": "Japan",
+   "n": null,
+   "design": "Cross-sectional",
+   "population": "Caregivers of patients with retinitis pigmentosa",
+   "respondent": "Caregivers"
+  },
+  {
+   "id": "36010145",
+   "doi": "10.3390/children9081255",
+   "author": "Fernández-Pérez JJ",
+   "year": 2022,
+   "title": "Quality of Life in Children and Adolescents with Stickler Syndrome in Spain",
+   "journal": "Children",
+   "ind": "ird",
+   "country": "Spain",
+   "n": 26,
+   "design": "Cross-sectional",
+   "population": "Children and adolescents with Stickler syndrome",
+   "respondent": "Patients"
+  },
+  {
+   "id": "30658988",
+   "doi": "10.1136/bjophthalmol-2018-313089",
+   "author": "Lloyd A",
+   "year": 2019,
+   "title": "Estimation of impact of RPE65-mediated inherited retinal disease on quality of life and the potential benefits of gene therapy",
+   "journal": "Br J Ophthalmol",
+   "ind": "ird",
+   "country": null,
+   "n": null,
+   "design": "Vignette valuation",
+   "population": "RPE65-mediated IRD health states (vignettes)",
+   "respondent": "Proxy (vignettes)"
+  },
+  {
+   "id": "18243152",
+   "doi": "10.1016/j.ajo.2007.12.011",
+   "author": "Luo BP",
+   "year": 2008,
+   "title": "The quality of life associated with presbyopia",
+   "journal": "Am J Ophthalmol",
+   "ind": "myopia",
+   "country": null,
+   "n": 110,
+   "design": "Cross-sectional",
+   "population": "Spectacle-corrected presbyopia",
+   "respondent": "Patients"
+  },
+  {
+   "id": "31191178",
+   "doi": "10.7224/1537-2073.2017-076",
+   "author": "Mealy MA",
+   "year": 2019,
+   "title": "Assessment of Patients with Neuromyelitis Optica Spectrum Disorder Using the EQ-5D",
+   "journal": "Int J MS Care",
+   "ind": "neuro",
+   "country": "United States",
+   "n": 21,
+   "design": "Cross-sectional",
+   "population": "Neuromyelitis optica spectrum disorder",
+   "respondent": "Patients"
+  },
+  {
+   "id": "21570045",
+   "doi": "10.1016/j.ajo.2011.01.026",
+   "author": "Wagle AM",
+   "year": 2011,
+   "title": "Utility values associated with vitreous floaters",
+   "journal": "Am J Ophthalmol",
+   "ind": "retina_other",
+   "country": null,
+   "n": 266,
+   "design": "Cross-sectional",
+   "population": "Symptomatic vitreous floaters",
+   "respondent": "Patients"
+  },
+  {
+   "id": "23054488",
+   "doi": "10.1007/s11136-012-0256-x",
+   "author": "Zou H",
+   "year": 2013,
+   "title": "The impact of persistent visually disabling vitreous floaters on health status utility values",
+   "journal": "Qual Life Res",
+   "ind": "retina_other",
+   "country": null,
+   "n": 107,
+   "design": "Prospective cross-sectional",
+   "population": "Persistent visually disabling vitreous floaters",
+   "respondent": "Patients"
+  },
+  {
+   "id": "18780253",
+   "doi": "10.1080/09286580701843804",
+   "author": "Zou H",
+   "year": 2008,
+   "title": "Quality of life in subjects with rhegmatogenous retinal detachment",
+   "journal": "Ophthalmic Epidemiol",
+   "ind": "retina_other",
+   "country": null,
+   "n": 163,
+   "design": "Cross-sectional",
+   "population": "Rhegmatogenous retinal detachment",
+   "respondent": "Patients"
+  },
+  {
+   "id": "17057800",
+   "doi": null,
+   "author": "Beauchamp GR",
+   "year": 2005,
+   "title": "The utility of strabismus in adults",
+   "journal": "Trans Am Ophthalmol Soc",
+   "ind": "strab",
+   "country": null,
+   "n": 140,
+   "design": "Cross-sectional, private practice",
+   "population": "Adult strabismus",
+   "respondent": "Patients"
+  },
+  {
+   "id": "36580313",
+   "doi": "10.1001/jamaophthalmol.2022.3225",
+   "author": "Smith TJ",
+   "year": 2023,
+   "title": "Utility Assessment of Moderate to Severe Thyroid Eye Disease Health States",
+   "journal": "JAMA Ophthalmol",
+   "ind": "ted",
+   "country": null,
+   "n": null,
+   "design": "Vignette TTO valuation",
+   "population": "Active moderate-severe TED states, non-TED respondents",
+   "respondent": "General public"
+  },
+  {
+   "id": "30361275",
+   "doi": "10.1136/bjophthalmol-2018-312882",
+   "author": "Shamdas M",
+   "year": 2019,
+   "title": "Health-related quality of life in patients with uveitis",
+   "journal": "Br J Ophthalmol",
+   "ind": "uveitis",
+   "country": null,
+   "n": null,
+   "design": "Cross-sectional, tertiary clinic",
+   "population": "Uveitis",
+   "respondent": "Patients"
+  },
+  {
+   "id": "31201795",
+   "doi": "10.1016/j.ajo.2019.06.005",
+   "author": "Niemeyer KM",
+   "year": 2019,
+   "title": "Time Trade-off Utility Values in Noninfectious Uveitis",
+   "journal": "Am J Ophthalmol",
+   "ind": "uveitis",
+   "country": "United States",
+   "n": 104,
+   "design": "Cross-sectional, tertiary centre",
+   "population": "Noninfectious uveitis",
+   "respondent": "Patients"
+  },
+  {
+   "id": "22321801",
+   "doi": "10.1016/j.ajo.2011.11.016",
+   "author": "Chan CC",
+   "year": 2012,
+   "title": "Prevalence of inflammatory back pain in a cohort of patients with anterior uveitis",
+   "journal": "Am J Ophthalmol",
+   "ind": "uveitis",
+   "country": null,
+   "n": 141,
+   "design": "Retrospective cohort survey",
+   "population": "Anterior uveitis, by inflammatory back pain",
+   "respondent": "Patients"
+  },
+  {
+   "id": "21840602",
+   "doi": "10.1016/j.ophtha.2011.07.027",
+   "author": "MUST Trial Group",
+   "year": 2011,
+   "title": "Randomized comparison of systemic anti-inflammatory therapy versus fluocinolone acetonide implant for intermediate, posterior, and panuveitis: the multicenter uveitis steroid treatment trial",
+   "journal": "Ophthalmology",
+   "ind": "uveitis",
+   "country": null,
+   "n": 255,
+   "design": "RCT (MUST)",
+   "population": "Intermediate, posterior or panuveitis",
+   "respondent": "Patients"
+  },
+  {
+   "id": "39089062",
+   "doi": "10.1016/j.vhri.2024.101030",
+   "author": "Pongsachareonnont PF",
+   "year": 2024,
+   "title": "Health Utility Values Among Patients With Diabetic Retinopathy, Wet Age-Related Macular Degeneration, and Cataract in Thailand: A Multicenter Survey Using Time Trade-Off, EQ-5D-5L, and Health Utility Index 3",
+   "journal": "Value Health Reg Issues",
+   "ind": "vi",
+   "country": "Thailand",
+   "n": 309,
+   "design": "Multicentre cross-sectional",
+   "population": "DR, wet AMD and cataract (pooled)",
+   "respondent": "Patients"
+  },
+  {
+   "id": "39133678",
+   "doi": "10.1371/journal.pone.0307691",
+   "author": "Araujo AL",
+   "year": 2024,
+   "title": "Utility index and vision-related quality of life in patients awaiting specialist eye care",
+   "journal": "PLoS One",
+   "ind": "vi",
+   "country": null,
+   "n": null,
+   "design": "Cross-sectional",
+   "population": "Patients awaiting specialist eye care",
+   "respondent": "Patients"
+  },
+  {
+   "id": "39262686",
+   "doi": "10.1155/2023/9987483",
+   "author": "Yu BE",
+   "year": 2023,
+   "title": "The Quality of Life of Seniors with Eye Diseases during COVID-19",
+   "journal": "J Ophthalmol",
+   "ind": "vi",
+   "country": null,
+   "n": 90,
+   "design": "Cross-sectional survey",
+   "population": "Seniors with eye diseases during COVID-19",
+   "respondent": "Patients"
+  },
+  {
+   "id": "36177426",
+   "doi": "10.4103/jehp.jehp_1444_21",
+   "author": "Raadabadi M",
+   "year": 2022,
+   "title": "Health-related quality of life among adult patients with visual impairments in Yazd, Iran",
+   "journal": "J Educ Health Promot",
+   "ind": "vi",
+   "country": "Iran",
+   "n": 300,
+   "design": "Cross-sectional",
+   "population": "Adults with visual impairment",
+   "respondent": "Patients"
+  },
+  {
+   "id": "31515429",
+   "doi": "10.1136/bmjopen-2019-030561",
+   "author": "Guan X",
+   "year": 2019,
+   "title": "Burden of visual impairment associated with eye diseases: exploratory survey of 298 Chinese patients",
+   "journal": "BMJ Open",
+   "ind": "vi",
+   "country": "China",
+   "n": 302,
+   "design": "Interview survey",
+   "population": "Moderate VI or worse in both eyes",
+   "respondent": "Patients"
+  },
+  {
+   "id": "27196876",
+   "doi": "10.1001/jamaophthalmol.2016.1158",
+   "author": "Park SJ",
+   "year": 2016,
+   "title": "Burden of Visual Impairment and Chronic Diseases",
+   "journal": "JAMA Ophthalmol",
+   "ind": "vi",
+   "country": "South Korea",
+   "n": 28382,
+   "design": "National survey (KNHANES)",
+   "population": "General adult population, VI vs none",
+   "respondent": "Patients"
+  },
+  {
+   "id": "26379209",
+   "doi": "10.1001/jamaophthalmol.2015.3055",
+   "author": "Park SJ",
+   "year": 2015,
+   "title": "Extent of Exacerbation of Chronic Health Conditions by Visual Impairment in Terms of Health-Related Quality of Life",
+   "journal": "JAMA Ophthalmol",
+   "ind": "vi",
+   "country": "South Korea",
+   "n": 29639,
+   "design": "National survey (KNHANES)",
+   "population": "General adult population, VI vs none",
+   "respondent": "Patients"
+  },
+  {
+   "id": "26040222",
+   "doi": "10.1016/j.jcjo.2015.02.004",
+   "author": "Chaudry I",
+   "year": 2015,
+   "title": "Medical student and patient perceptions of quality of life associated with vision loss",
+   "journal": "Can J Ophthalmol",
+   "ind": "vi",
+   "country": "United States",
+   "n": 257,
+   "design": "Cross-sectional",
+   "population": "Medical students imagining vision loss",
+   "respondent": "Medical students"
+  },
+  {
+   "id": "24768238",
+   "doi": "10.1016/j.ophtha.2014.03.017",
+   "author": "Wang X",
+   "year": 2014,
+   "title": "Health burden associated with visual impairment in Singapore: the Singapore epidemiology of eye disease study",
+   "journal": "Ophthalmology",
+   "ind": "vi",
+   "country": "Singapore",
+   "n": 10009,
+   "design": "Population-based cross-sectional",
+   "population": "Chinese, Indian and Malay adults",
+   "respondent": "Patients"
+  },
+  {
+   "id": "25133670",
+   "doi": "10.3109/09286586.2014.950281",
+   "author": "Briesen S",
+   "year": 2014,
+   "title": "The impact of visual impairment on health-related quality of life in rural Africa",
+   "journal": "Ophthalmic Epidemiol",
+   "ind": "vi",
+   "country": "Kenya",
+   "n": 303,
+   "design": "Cross-sectional, eye clinic",
+   "population": "Normal vision to blindness (WHO categories)",
+   "respondent": "Patients"
+  },
+  {
+   "id": "23628757",
+   "doi": "10.1097/opx.0b013e318291063a",
+   "author": "Gothwal VK",
+   "year": 2013,
+   "title": "Utility values in the visually impaired: comparing time-trade off and VisQoL",
+   "journal": "Optom Vis Sci",
+   "ind": "vi",
+   "country": "India",
+   "n": 349,
+   "design": "Cross-sectional",
+   "population": "Adults with visual impairment",
+   "respondent": "Patients"
+  },
+  {
+   "id": "23851303",
+   "doi": "10.1097/opx.0000000000000005",
+   "author": "Malkin AG",
+   "year": 2013,
+   "title": "Responsiveness of the EQ-5D to the effects of low vision rehabilitation",
+   "journal": "Optom Vis Sci",
+   "ind": "vi",
+   "country": null,
+   "n": 77,
+   "design": "Telephone interview",
+   "population": "Low-vision rehabilitation patients",
+   "respondent": "Patients"
+  },
+  {
+   "id": "18972222",
+   "doi": "10.1007/s11136-008-9399-1",
+   "author": "Smith DH",
+   "year": 2008,
+   "title": "Lower visual acuity predicts worse utility values among patients with type 2 diabetes",
+   "journal": "Qual Life Res",
+   "ind": "vi",
+   "country": null,
+   "n": 4000,
+   "design": "Survey of HMO members",
+   "population": "Type 2 diabetes, by visual acuity",
+   "respondent": "Patients"
+  },
+  {
+   "id": "17613846",
+   "doi": "10.1080/09286580601139212",
+   "author": "Langelaan M",
+   "year": 2007,
+   "title": "Impact of visual impairment on quality of life: a comparison with quality of life in the general population and with other chronic conditions",
+   "journal": "Ophthalmic Epidemiol",
+   "ind": "vi",
+   "country": "Netherlands",
+   "n": 128,
+   "design": "Cross-sectional",
+   "population": "Adults at a visual rehabilitation centre",
+   "respondent": "Patients"
+  },
+  {
+   "id": "16836777",
+   "doi": "10.1017/s0012162206001381",
+   "author": "Boulton M",
+   "year": 2006,
+   "title": "Health-related quality of life of children with vision impairment or blindness",
+   "journal": "Dev Med Child Neurol",
+   "ind": "vi",
+   "country": "United Kingdom",
+   "n": null,
+   "design": "Community survey",
+   "population": "Children aged 3-8 with VI or blindness",
+   "respondent": "Proxy (parents)"
+  },
+  {
+   "id": "12799229",
+   "doi": "10.1016/s0161-6420(03)00254-9",
+   "author": "Brown MM",
+   "year": 2003,
+   "title": "Quality of life associated with visual loss: a time tradeoff utility analysis comparison with medical health states",
+   "journal": "Ophthalmology",
+   "ind": "vi",
+   "country": null,
+   "n": 500,
+   "design": "Cross-sectional",
+   "population": "Patients with ocular disease by better-eye VA",
+   "respondent": "Patients"
+  },
+  {
+   "id": "11222340",
+   "doi": "10.1136/bjo.85.3.327",
+   "author": "Brown MM",
+   "year": 2001,
+   "title": "Utility values associated with blindness in an adult population",
+   "journal": "Br J Ophthalmol",
+   "ind": "vi",
+   "country": null,
+   "n": 65,
+   "design": "Cross-sectional",
+   "population": "Legal blindness groups",
+   "respondent": "Patients"
+  },
+  {
+   "id": "11297474",
+   "doi": "10.1016/s0161-6420(00)00635-7",
+   "author": "Brown MM",
+   "year": 2001,
+   "title": "Quality of life associated with unilateral and bilateral good vision",
+   "journal": "Ophthalmology",
+   "ind": "vi",
+   "country": null,
+   "n": 147,
+   "design": "Cross-sectional",
+   "population": "Ocular disease with good VA in one or both eyes",
+   "respondent": "Patients"
+  },
+  {
+   "id": "10959467",
+   "doi": "10.1016/s0008-4182(00)80077-0",
+   "author": "Sharma S",
+   "year": 2000,
+   "title": "Converting visual acuity to utilities",
+   "journal": "Can J Ophthalmol",
+   "ind": "vi",
+   "country": "Canada",
+   "n": 239,
+   "design": "Cross-sectional",
+   "population": "Retinal practice patients, mixed ocular conditions",
+   "respondent": "Patients"
+  },
+  {
+   "id": "11035553",
+   "doi": "10.1076/0928-6586(200009)731-vft169",
+   "author": "Nease RF",
+   "year": 2000,
+   "title": "Utility-based estimates of the relative morbidity of visual impairment and angina",
+   "journal": "Ophthalmic Epidemiol",
+   "ind": "vi",
+   "country": "United States",
+   "n": 60,
+   "design": "Cross-sectional",
+   "population": "Patients with both vision problems and angina",
+   "respondent": "Patients"
+  }
+ ],
+ "values": [
+  {
+   "sid": "38471750",
+   "state": "Severe DES symptoms vs none",
+   "sev": 9,
+   "inst": "EQ-5D-5L",
+   "value": -0.085,
+   "disp": null,
+   "vtype": "decrement",
+   "note": "Difference in health utility score; exceeds EQ-5D MCID"
+  },
+  {
+   "sid": "39695504",
+   "state": "Dry eye – all",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.76,
+   "disp": "SD 0.18",
+   "vtype": "level"
+  },
+  {
+   "sid": "39695504",
+   "state": "Dry eye – mild",
+   "sev": 1,
+   "inst": "EQ-5D-5L",
+   "value": 0.84,
+   "disp": "SD 0.16",
+   "vtype": "level"
+  },
+  {
+   "sid": "39695504",
+   "state": "Dry eye – moderate",
+   "sev": 2,
+   "inst": "EQ-5D-5L",
+   "value": 0.78,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "39695504",
+   "state": "Dry eye – severe",
+   "sev": 3,
+   "inst": "EQ-5D-5L",
+   "value": 0.71,
+   "disp": "SD 0.22",
+   "vtype": "level"
+  },
+  {
+   "sid": "35940854",
+   "state": "Any DES symptoms vs none",
+   "sev": 9,
+   "inst": "EQ-5D (UK TTO tariff)",
+   "value": -0.062,
+   "disp": "95% CI -0.073 to -0.050",
+   "vtype": "decrement",
+   "note": "Adjusted difference"
+  },
+  {
+   "sid": "32277941",
+   "state": "Dry eye – all",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.82,
+   "disp": "SD 0.13",
+   "vtype": "level"
+  },
+  {
+   "sid": "32277941",
+   "state": "No dry eye (comparator)",
+   "sev": -1,
+   "inst": "EQ-5D-5L",
+   "value": 0.88,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "29417445",
+   "state": "Dry eye – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.95,
+   "disp": "SD 0.11",
+   "vtype": "level"
+  },
+  {
+   "sid": "29417445",
+   "state": "Dry eye – all",
+   "sev": 0,
+   "inst": "SG (death)",
+   "value": 0.96,
+   "disp": "SD 0.10",
+   "vtype": "level",
+   "note": "Reported as SG1; anchor not stated in abstract"
+  },
+  {
+   "sid": "29417445",
+   "state": "Dry eye – all",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.99,
+   "disp": "SD 0.07",
+   "vtype": "level",
+   "note": "Reported as SG2; anchor not stated in abstract"
+  },
+  {
+   "sid": "29417445",
+   "state": "Dry eye – all",
+   "sev": 0,
+   "inst": "Rating scale",
+   "value": 0.89,
+   "disp": "SD 0.10",
+   "vtype": "level"
+  },
+  {
+   "sid": "12867401",
+   "state": "Dry eye – moderate",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.78,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "12867401",
+   "state": "Dry eye – severe",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.72,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "42266519",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.74,
+   "disp": "0.71–0.77",
+   "vtype": "level"
+  },
+  {
+   "sid": "37059392",
+   "state": "Worst HUG-5 state",
+   "sev": 4,
+   "inst": "HUG-5 (SG value set)",
+   "value": 0.05,
+   "disp": "scale 0.05–1",
+   "vtype": "level",
+   "note": "Lower bound of the scoring function, US general population"
+  },
+  {
+   "sid": "33658759",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.837,
+   "disp": "SD 0.191",
+   "vtype": "level"
+  },
+  {
+   "sid": "33658759",
+   "state": "Normal vision (comparator)",
+   "sev": -1,
+   "inst": "EQ-5D-5L",
+   "value": 0.874,
+   "disp": "SD 0.122",
+   "vtype": "level"
+  },
+  {
+   "sid": "33658759",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "VFQ-UI",
+   "value": 0.833,
+   "disp": "SD 0.147",
+   "vtype": "level"
+  },
+  {
+   "sid": "33658759",
+   "state": "Normal vision (comparator)",
+   "sev": -1,
+   "inst": "VFQ-UI",
+   "value": 0.895,
+   "disp": "SD 0.070",
+   "vtype": "level"
+  },
+  {
+   "sid": "29847608",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "EQ-5D-3L",
+   "value": 0.8968,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "29847608",
+   "state": "Glaucoma + bilateral vision loss",
+   "sev": 3,
+   "inst": "EQ-5D-3L",
+   "value": 0.83,
+   "disp": null,
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "29847608",
+   "state": "Glaucoma, no vision loss",
+   "sev": 1,
+   "inst": "EQ-5D-3L",
+   "value": 0.92,
+   "disp": null,
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "29847608",
+   "state": "Worst-eye FDT score – lowest quartile",
+   "sev": 3,
+   "inst": "EQ-5D-3L",
+   "value": 0.88,
+   "disp": null,
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "29847608",
+   "state": "Worst-eye FDT score – highest quartile",
+   "sev": 1,
+   "inst": "EQ-5D-3L",
+   "value": 0.94,
+   "disp": null,
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – mild",
+   "sev": 1,
+   "inst": "Rating scale",
+   "value": 0.7,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – mild",
+   "sev": 1,
+   "inst": "SG (blindness)",
+   "value": 0.85,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – mild",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.77,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – moderate to severe",
+   "sev": 3,
+   "inst": "Rating scale",
+   "value": 0.56,
+   "disp": "SD 0.20",
+   "vtype": "level"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – moderate to severe",
+   "sev": 3,
+   "inst": "SG (blindness)",
+   "value": 0.75,
+   "disp": "SD 0.20",
+   "vtype": "level"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – moderate to severe",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.78,
+   "disp": "SD 0.11",
+   "vtype": "level"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – mild (hypothetical)",
+   "sev": 1,
+   "inst": "Rating scale",
+   "value": 0.81,
+   "disp": "SD 0.14",
+   "vtype": "level",
+   "resp": "Clinicians"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – mild (hypothetical)",
+   "sev": 1,
+   "inst": "SG (blindness)",
+   "value": 0.96,
+   "disp": "SD 0.05",
+   "vtype": "level",
+   "resp": "Clinicians"
+  },
+  {
+   "sid": "25415642",
+   "state": "Glaucoma – mild (hypothetical)",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.95,
+   "disp": "SD 0.05",
+   "vtype": "level",
+   "resp": "Clinicians"
+  },
+  {
+   "sid": "24648717",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.82,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24648717",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "SG (death)",
+   "value": 0.9,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24648717",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.93,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "23614930",
+   "state": "Ocular hypertension",
+   "sev": 0.5,
+   "inst": "HUI3",
+   "value": 0.87,
+   "disp": "SD 0.09",
+   "vtype": "level"
+  },
+  {
+   "sid": "23614930",
+   "state": "Glaucoma – early",
+   "sev": 1,
+   "inst": "HUI3",
+   "value": 0.85,
+   "disp": "SD 0.15",
+   "vtype": "level"
+  },
+  {
+   "sid": "23614930",
+   "state": "Glaucoma – moderate",
+   "sev": 2,
+   "inst": "HUI3",
+   "value": 0.75,
+   "disp": "SD 0.23",
+   "vtype": "level"
+  },
+  {
+   "sid": "23614930",
+   "state": "Glaucoma – advanced",
+   "sev": 3,
+   "inst": "HUI3",
+   "value": 0.58,
+   "disp": "SD 0.32",
+   "vtype": "level"
+  },
+  {
+   "sid": "22729099",
+   "state": "Utility gain after glaucoma surgery",
+   "sev": 9,
+   "inst": "TTO",
+   "value": 0.096,
+   "disp": "SD 0.105",
+   "vtype": "gain"
+  },
+  {
+   "sid": "19208679",
+   "state": "Glaucoma – all (PAC/PACG)",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.75,
+   "disp": "SD 0.14; 95% CI 0.73–0.78",
+   "vtype": "level"
+  },
+  {
+   "sid": "19208679",
+   "state": "Glaucoma – all (PAC/PACG)",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.8,
+   "disp": "SD 0.08; 95% CI 0.78–0.81",
+   "vtype": "level"
+  },
+  {
+   "sid": "17826833",
+   "state": "Glaucoma – asymptomatic",
+   "sev": 0.5,
+   "inst": "SG (death)",
+   "value": 0.92,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "17826833",
+   "state": "Glaucoma – early field loss",
+   "sev": 1,
+   "inst": "SG (death)",
+   "value": 0.89,
+   "disp": null,
+   "vtype": "level",
+   "derived": true,
+   "note": "Derived: 0.92 minus reported 0.03 decrement"
+  },
+  {
+   "sid": "17826833",
+   "state": "Glaucoma – central field loss",
+   "sev": 3,
+   "inst": "SG (death)",
+   "value": 0.86,
+   "disp": null,
+   "vtype": "level",
+   "derived": true,
+   "note": "Derived: further 0.03 decrement from early field loss"
+  },
+  {
+   "sid": "16170108",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.64,
+   "disp": "95% CI 0.58–0.70",
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "SG (death)",
+   "value": 0.86,
+   "disp": "95% CI 0.81–0.90",
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Glaucoma – all",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.97,
+   "disp": "95% CI 0.94–0.99",
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Better-eye BCVA 6/9 or better",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.66,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Better-eye BCVA 6/18–6/12",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.66,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Better-eye BCVA 6/36–6/24",
+   "sev": 2.5,
+   "inst": "TTO",
+   "value": 0.62,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Better-eye BCVA 3/60–6/60",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.55,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "16170108",
+   "state": "Better-eye BCVA 3/60 or worse",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.61,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "16276277",
+   "state": "Glaucoma – all (POAG/PACG)",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.88,
+   "disp": "95% CI 0.85–0.91",
+   "vtype": "level"
+  },
+  {
+   "sid": "16276277",
+   "state": "Glaucoma – all (POAG/PACG)",
+   "sev": 0,
+   "inst": "SG (death)",
+   "value": 0.94,
+   "disp": "95% CI 0.93–0.96",
+   "vtype": "level"
+  },
+  {
+   "sid": "16276277",
+   "state": "Glaucoma – all (POAG/PACG)",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.95,
+   "disp": "95% CI 0.93–0.97",
+   "vtype": "level"
+  },
+  {
+   "sid": "11797316",
+   "state": "Glaucoma patients and suspects",
+   "sev": 0,
+   "inst": "Rating scale (vision-anchored)",
+   "value": 0.757,
+   "disp": "SD 0.176",
+   "vtype": "level",
+   "derived": true,
+   "note": "Reported on 0 (blind) to 100 (ideal) vision scale as 75.7; rescaled to 0–1"
+  },
+  {
+   "sid": "42493702",
+   "state": "Adolescents with myopia",
+   "sev": 0,
+   "inst": "EQ-5D-Y-3L",
+   "value": 0.962,
+   "disp": "SD 0.070",
+   "vtype": "level"
+  },
+  {
+   "sid": "42493702",
+   "state": "Adolescents with myopia",
+   "sev": 0,
+   "inst": "CHU-9D",
+   "value": 0.851,
+   "disp": "SD 0.160",
+   "vtype": "level"
+  },
+  {
+   "sid": "41068823",
+   "state": "Adolescents with myopia",
+   "sev": 0,
+   "inst": "CHU-9D",
+   "value": 0.851,
+   "disp": "SD 0.160",
+   "vtype": "level",
+   "note": "Same n and value as Luo 2026 – likely the same cohort"
+  },
+  {
+   "sid": "37024413",
+   "state": "Myopic children – all",
+   "sev": 0,
+   "inst": "CHU-9D",
+   "value": 0.936,
+   "disp": "95% CI 0.929–0.943",
+   "vtype": "level"
+  },
+  {
+   "sid": "37024413",
+   "state": "Myopic children – PLD spectacles",
+   "sev": 0,
+   "inst": "CHU-9D",
+   "value": 0.955,
+   "disp": "95% CI 0.946–0.963",
+   "vtype": "level"
+  },
+  {
+   "sid": "37024413",
+   "state": "Myopic children – single-vision spectacles",
+   "sev": 0,
+   "inst": "CHU-9D",
+   "value": 0.926,
+   "disp": "95% CI 0.913–0.939",
+   "vtype": "level"
+  },
+  {
+   "sid": "37024413",
+   "state": "Myopic children – orthokeratology",
+   "sev": 0,
+   "inst": "CHU-9D",
+   "value": 0.925,
+   "disp": "95% CI 0.913–0.937",
+   "vtype": "level"
+  },
+  {
+   "sid": "37403059",
+   "state": "Myopia patients – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.95,
+   "disp": null,
+   "vtype": "level",
+   "note": "Abstract reports TTO and SG as similar (0.95)"
+  },
+  {
+   "sid": "37403059",
+   "state": "Myopia patients – all",
+   "sev": 0,
+   "inst": "SG",
+   "value": 0.95,
+   "disp": null,
+   "vtype": "level",
+   "note": "Abstract reports TTO and SG as similar (0.95)"
+  },
+  {
+   "sid": "37403059",
+   "state": "Myopia patients – all",
+   "sev": 0,
+   "inst": "AQoL-7D",
+   "value": 0.89,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "37403059",
+   "state": "Myopia patients – all",
+   "sev": 0,
+   "inst": "VFQ-UI",
+   "value": 0.83,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24901487",
+   "state": "Adults pre-refractive surgery",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.96,
+   "disp": "SD 0.05",
+   "vtype": "level"
+  },
+  {
+   "sid": "24901487",
+   "state": "Adults pre-refractive surgery",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.93,
+   "disp": "SD 0.09",
+   "vtype": "level"
+  },
+  {
+   "sid": "12598451",
+   "state": "Myopic teenagers – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.93,
+   "disp": "95% CI 0.93–0.94",
+   "vtype": "level"
+  },
+  {
+   "sid": "12598451",
+   "state": "Myopic teenagers – all",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.85,
+   "disp": "95% CI 0.84–0.86",
+   "vtype": "level"
+  },
+  {
+   "sid": "12598451",
+   "state": "Better-eye logMAR VA > 0.3",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.92,
+   "disp": null,
+   "vtype": "level",
+   "note": "Adjusted for race and sex; vs 0.94 for VA ≤ 0.3"
+  },
+  {
+   "sid": "31259862",
+   "state": "Blepharokeratoconjunctivitis (children)",
+   "sev": 1,
+   "inst": "CHU-9D",
+   "value": 0.89,
+   "disp": "SD 0.08",
+   "vtype": "level"
+  },
+  {
+   "sid": "31259862",
+   "state": "No ocular surface inflammation (comparator)",
+   "sev": -1,
+   "inst": "CHU-9D",
+   "value": 0.92,
+   "disp": "SD 0.07",
+   "vtype": "level"
+  },
+  {
+   "sid": "24229439",
+   "state": "Allergic rhinoconjunctivitis – before immunotherapy",
+   "sev": 1,
+   "inst": "EQ-5D",
+   "value": 0.7,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24229439",
+   "state": "Allergic rhinoconjunctivitis – after 1 year immunotherapy",
+   "sev": 0.5,
+   "inst": "EQ-5D",
+   "value": 0.77,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24229439",
+   "state": "Allergic rhinoconjunctivitis – before immunotherapy",
+   "sev": 1,
+   "inst": "15D",
+   "value": 0.83,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24229439",
+   "state": "Allergic rhinoconjunctivitis – after 1 year immunotherapy",
+   "sev": 0.5,
+   "inst": "15D",
+   "value": 0.86,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "41844139",
+   "state": "Geographic atrophy",
+   "sev": 3,
+   "inst": "EQ-5D",
+   "value": 0.93,
+   "disp": "SE 0.02",
+   "vtype": "level"
+  },
+  {
+   "sid": "41844139",
+   "state": "Wet AMD",
+   "sev": 3,
+   "inst": "EQ-5D",
+   "value": 0.93,
+   "disp": "SE 0.01",
+   "vtype": "level",
+   "note": "Abstract gives ± without labelling SD or SE"
+  },
+  {
+   "sid": "31673632",
+   "state": "Neovascular AMD – baseline",
+   "sev": 0,
+   "inst": "EQ-5D-3L",
+   "value": 0.74,
+   "disp": "SD 0.28",
+   "vtype": "level"
+  },
+  {
+   "sid": "28225799",
+   "state": "AMD – no visual loss in either eye",
+   "sev": 1,
+   "inst": "SF-6D",
+   "value": 0.74,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "28225799",
+   "state": "AMD – mild-moderate loss better eye, severe worse eye",
+   "sev": 3,
+   "inst": "SF-6D",
+   "value": 0.684,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "29017463",
+   "state": "AMD on anti-VEGF",
+   "sev": 0,
+   "inst": "EQ-5D",
+   "value": 0.66,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "29017463",
+   "state": "AMD on anti-VEGF",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.72,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "22535331",
+   "state": "Gain after ranibizumab loading",
+   "sev": 9,
+   "inst": "SG (death)",
+   "value": 0.02,
+   "disp": null,
+   "vtype": "gain",
+   "derived": true,
+   "note": "Reported as 2 utils"
+  },
+  {
+   "sid": "22535331",
+   "state": "Gain after ranibizumab loading",
+   "sev": 9,
+   "inst": "EQ-5D (German TTO tariff)",
+   "value": 0.066,
+   "disp": null,
+   "vtype": "gain",
+   "derived": true,
+   "note": "Reported as 6.6 utils"
+  },
+  {
+   "sid": "17620576",
+   "state": "Wet AMD – best VA stratum",
+   "sev": 1,
+   "inst": "HUI3",
+   "value": 0.62,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "17620576",
+   "state": "Wet AMD – worst VA stratum",
+   "sev": 4,
+   "inst": "HUI3",
+   "value": 0.39,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "16249475",
+   "state": "AMD – all",
+   "sev": 0,
+   "inst": "HUI3",
+   "value": 0.34,
+   "disp": "SD 0.28",
+   "vtype": "level"
+  },
+  {
+   "sid": "16249475",
+   "state": "AMD – all",
+   "sev": 0,
+   "inst": "SF-6D",
+   "value": 0.66,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "16249475",
+   "state": "AMD – all",
+   "sev": 0,
+   "inst": "EQ-5D",
+   "value": 0.72,
+   "disp": "SD 0.22",
+   "vtype": "level"
+  },
+  {
+   "sid": "16249475",
+   "state": "AMD – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.64,
+   "disp": "SD 0.31",
+   "vtype": "level"
+  },
+  {
+   "sid": "12488253",
+   "state": "Mild AMD",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.832,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "12488253",
+   "state": "Mild AMD (hypothetical)",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.96,
+   "disp": null,
+   "vtype": "level",
+   "resp": "Clinicians"
+  },
+  {
+   "sid": "12488253",
+   "state": "Mild AMD (hypothetical)",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.932,
+   "disp": null,
+   "vtype": "level",
+   "resp": "General public"
+  },
+  {
+   "sid": "10636413",
+   "state": "AMD – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.72,
+   "disp": "95% CI 0.66–0.78",
+   "vtype": "level"
+  },
+  {
+   "sid": "10636413",
+   "state": "AMD – all",
+   "sev": 0,
+   "inst": "SG",
+   "value": 0.81,
+   "disp": "95% CI 0.76–0.86",
+   "vtype": "level"
+  },
+  {
+   "sid": "10636413",
+   "state": "Better-eye VA 20/20–20/25",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.89,
+   "disp": "95% CI 0.82–0.96",
+   "vtype": "level"
+  },
+  {
+   "sid": "10636413",
+   "state": "Better-eye VA 20/30–20/50",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.81,
+   "disp": "95% CI 0.73–0.89",
+   "vtype": "level"
+  },
+  {
+   "sid": "10636413",
+   "state": "Better-eye VA 20/60–20/100",
+   "sev": 2.5,
+   "inst": "TTO",
+   "value": 0.57,
+   "disp": "95% CI 0.47–0.67",
+   "vtype": "level"
+  },
+  {
+   "sid": "10636413",
+   "state": "Better-eye VA 20/200–20/400",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.52,
+   "disp": "95% CI 0.38–0.66",
+   "vtype": "level"
+  },
+  {
+   "sid": "10636413",
+   "state": "Better-eye VA count fingers–light perception",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.4,
+   "disp": "95% CI 0.29–0.50",
+   "vtype": "level"
+  },
+  {
+   "sid": "32699049",
+   "state": "12 months after FLACS",
+   "sev": 0.5,
+   "inst": "EQ-5D-3L",
+   "value": 0.92,
+   "disp": "SD 0.13",
+   "vtype": "level"
+  },
+  {
+   "sid": "32699049",
+   "state": "12 months after phacoemulsification",
+   "sev": 0.5,
+   "inst": "EQ-5D-3L",
+   "value": 0.89,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "31902023",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "EQ-5D-3L",
+   "value": 0.018,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "31902023",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "EQ-5D-3L + vision bolt-on",
+   "value": 0.031,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "31902023",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "EQ-5D-5L",
+   "value": 0.02,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "31902023",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "SF-6D",
+   "value": 0.012,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "31902023",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "HUI3",
+   "value": 0.105,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "30607809",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "EQ-5D-3L",
+   "value": 0.016,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "30607809",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "EQ-5D-5L",
+   "value": 0.028,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "30607809",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "SF-6D",
+   "value": 0.02,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "30607809",
+   "state": "Gain after cataract surgery",
+   "sev": 9,
+   "inst": "HUI3",
+   "value": 0.08,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "20685077",
+   "state": "Gain 1 month after cataract surgery",
+   "sev": 9,
+   "inst": "SF-6D",
+   "value": 0.0,
+   "disp": null,
+   "vtype": "gain",
+   "note": "Lowest of five indexes"
+  },
+  {
+   "sid": "20685077",
+   "state": "Gain 1 month after cataract surgery",
+   "sev": 9,
+   "inst": "HUI3",
+   "value": 0.052,
+   "disp": null,
+   "vtype": "gain",
+   "note": "Highest of five indexes"
+  },
+  {
+   "sid": "19098042",
+   "state": "Before cataract surgery",
+   "sev": 1,
+   "inst": "EQ-5D",
+   "value": 0.82,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "19098042",
+   "state": "3 months after cataract surgery",
+   "sev": 0.5,
+   "inst": "EQ-5D",
+   "value": 0.79,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "15899457",
+   "state": "Scheduled for cataract surgery",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.77,
+   "disp": "95% CI 0.76–0.78",
+   "vtype": "level"
+  },
+  {
+   "sid": "15899457",
+   "state": "Scheduled for cataract surgery",
+   "sev": 1,
+   "inst": "SG (death)",
+   "value": 0.77,
+   "disp": "95% CI 0.77–0.78",
+   "vtype": "level"
+  },
+  {
+   "sid": "15899457",
+   "state": "Scheduled for cataract surgery",
+   "sev": 1,
+   "inst": "SG (blindness)",
+   "value": 0.76,
+   "disp": "95% CI 0.75–0.77",
+   "vtype": "level"
+  },
+  {
+   "sid": "29392638",
+   "state": "Before cataract surgery",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.67,
+   "disp": "SD 0.19",
+   "vtype": "level"
+  },
+  {
+   "sid": "29392638",
+   "state": "Before cataract surgery",
+   "sev": 1,
+   "inst": "SG (death)",
+   "value": 0.75,
+   "disp": "SD 0.15",
+   "vtype": "level"
+  },
+  {
+   "sid": "29392638",
+   "state": "Before cataract surgery",
+   "sev": 1,
+   "inst": "SG (blindness)",
+   "value": 0.67,
+   "disp": "SD 0.20",
+   "vtype": "level"
+  },
+  {
+   "sid": "29392638",
+   "state": "6 months after cataract surgery",
+   "sev": 0.5,
+   "inst": "TTO",
+   "value": 0.91,
+   "disp": "SD 0.06",
+   "vtype": "level"
+  },
+  {
+   "sid": "29392638",
+   "state": "6 months after cataract surgery",
+   "sev": 0.5,
+   "inst": "SG (death)",
+   "value": 0.98,
+   "disp": "SD 0.04",
+   "vtype": "level"
+  },
+  {
+   "sid": "29392638",
+   "state": "6 months after cataract surgery",
+   "sev": 0.5,
+   "inst": "SG (blindness)",
+   "value": 0.92,
+   "disp": "SD 0.52",
+   "vtype": "level",
+   "note": "SD as reported in abstract"
+  },
+  {
+   "sid": "39073343",
+   "state": "After toric IOL – no axis flip",
+   "sev": 0.5,
+   "inst": "EQ-5D-3L",
+   "value": 0.89,
+   "disp": "SD 0.19",
+   "vtype": "level"
+  },
+  {
+   "sid": "39073343",
+   "state": "After toric IOL – axis flip",
+   "sev": 0.5,
+   "inst": "EQ-5D-3L",
+   "value": 0.85,
+   "disp": "SD 0.19",
+   "vtype": "level"
+  },
+  {
+   "sid": "37298028",
+   "state": "Keratoconus – 1 day after cross-linking",
+   "sev": 3,
+   "inst": "EQ-5D-5L",
+   "value": 0.59,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "24398095",
+   "state": "Keratoconus – all",
+   "sev": 0,
+   "inst": "VisQoL",
+   "value": 0.6,
+   "disp": "median; IQR 0.46",
+   "vtype": "level"
+  },
+  {
+   "sid": "24398095",
+   "state": "Keratoconus – males",
+   "sev": 0,
+   "inst": "VisQoL",
+   "value": 0.65,
+   "disp": "median; IQR 0.49",
+   "vtype": "level"
+  },
+  {
+   "sid": "24398095",
+   "state": "Keratoconus – females",
+   "sev": 0,
+   "inst": "VisQoL",
+   "value": 0.51,
+   "disp": "median; IQR 0.40",
+   "vtype": "level"
+  },
+  {
+   "sid": "39985016",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.69,
+   "disp": "95% CI 0.65–0.73",
+   "vtype": "level"
+  },
+  {
+   "sid": "34033298",
+   "state": "Type 2 diabetes screened – all",
+   "sev": 0,
+   "inst": "EQ-5D (Brazilian tariff)",
+   "value": 0.765,
+   "disp": "SD 0.19; 95% CI 0.740–0.790",
+   "vtype": "level"
+  },
+  {
+   "sid": "34033298",
+   "state": "No diabetic retinopathy (comparator)",
+   "sev": -1,
+   "inst": "EQ-5D (Brazilian tariff)",
+   "value": 0.748,
+   "disp": "95% CI 0.698–0.798",
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "34033298",
+   "state": "Non-sight-threatening DR",
+   "sev": 1,
+   "inst": "EQ-5D (Brazilian tariff)",
+   "value": 0.752,
+   "disp": "95% CI 0.679–0.825",
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "34033298",
+   "state": "Sight-threatening DR",
+   "sev": 3,
+   "inst": "EQ-5D (Brazilian tariff)",
+   "value": 0.628,
+   "disp": "95% CI 0.521–0.736",
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "34033298",
+   "state": "Bilateral blindness",
+   "sev": 4,
+   "inst": "EQ-5D (Brazilian tariff)",
+   "value": 0.355,
+   "disp": "95% CI 0.105–0.606",
+   "vtype": "level",
+   "note": "Adjusted mean"
+  },
+  {
+   "sid": "32128637",
+   "state": "Diabetic retinopathy vs none",
+   "sev": 9,
+   "inst": "EQ-5D-5L",
+   "value": -0.066,
+   "disp": null,
+   "vtype": "decrement"
+  },
+  {
+   "sid": "29740784",
+   "state": "No DR (comparator)",
+   "sev": -1,
+   "inst": "EQ-5D-5L",
+   "value": 0.986,
+   "disp": "SD 0.045",
+   "vtype": "level"
+  },
+  {
+   "sid": "29740784",
+   "state": "Unilateral DR",
+   "sev": 1,
+   "inst": "EQ-5D-5L",
+   "value": 0.971,
+   "disp": "SD 0.082",
+   "vtype": "level"
+  },
+  {
+   "sid": "29740784",
+   "state": "Bilateral DR",
+   "sev": 2,
+   "inst": "EQ-5D-5L",
+   "value": 0.97,
+   "disp": "SD 0.145",
+   "vtype": "level"
+  },
+  {
+   "sid": "28451530",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "SG",
+   "value": 0.95,
+   "disp": "SD 0.03",
+   "vtype": "level"
+  },
+  {
+   "sid": "28451530",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.85,
+   "disp": "SD 0.15",
+   "vtype": "level"
+  },
+  {
+   "sid": "28451530",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "Rating scale",
+   "value": 0.8,
+   "disp": "SD 0.30",
+   "vtype": "level"
+  },
+  {
+   "sid": "26630653",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.81,
+   "disp": "SD 0.11",
+   "vtype": "level"
+  },
+  {
+   "sid": "22537275",
+   "state": "Profound VI vs none (DR/DME)",
+   "sev": 9,
+   "inst": "VisQoL",
+   "value": -0.297,
+   "disp": "SE 0.098",
+   "vtype": "decrement",
+   "note": "Adjusted regression coefficient"
+  },
+  {
+   "sid": "12598432",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.79,
+   "disp": "SD 0.23",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.77,
+   "disp": "95% CI 0.73–0.81",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Diabetic retinopathy – all",
+   "sev": 0,
+   "inst": "SG",
+   "value": 0.88,
+   "disp": "95% CI 0.84–0.92",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Better-eye VA 20/20–20/25",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.85,
+   "disp": "95% CI 0.75–0.95",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Better-eye VA 20/30–20/50",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.78,
+   "disp": "95% CI 0.72–0.84",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Better-eye VA 20/60–20/100",
+   "sev": 2.5,
+   "inst": "TTO",
+   "value": 0.78,
+   "disp": "95% CI 0.67–0.89",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Better-eye VA 20/200–20/400",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.64,
+   "disp": "95% CI 0.53–0.75",
+   "vtype": "level"
+  },
+  {
+   "sid": "10511027",
+   "state": "Better-eye VA count fingers–hand motions",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.59,
+   "disp": "95% CI 0.23–0.95",
+   "vtype": "level"
+  },
+  {
+   "sid": "27050672",
+   "state": "Primary Sjögren's syndrome",
+   "sev": 0,
+   "inst": "EQ-5D",
+   "value": 0.773,
+   "disp": "SD 0.138",
+   "vtype": "level"
+  },
+  {
+   "sid": "33124153",
+   "state": "Anophthalmia after enucleation/evisceration",
+   "sev": 0,
+   "inst": "EQ-5D-3L",
+   "value": 0.8,
+   "disp": "range 0.06–1",
+   "vtype": "level"
+  },
+  {
+   "sid": "19929654",
+   "state": "Acquired anophthalmia – restoring vision",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.87,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "19929654",
+   "state": "Acquired anophthalmia – restoring appearance",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.9,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "37724287",
+   "state": "Colour vision deficiency",
+   "sev": 0,
+   "inst": "Utility (method not stated)",
+   "value": 1.0,
+   "disp": "median; range 0–1",
+   "vtype": "level"
+  },
+  {
+   "sid": "41686418",
+   "state": "Carer of person with mild XLRP",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.85,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "41686418",
+   "state": "Carer of person with moderate XLRP",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.76,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "41686418",
+   "state": "Carer of person with severe XLRP",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.54,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "41686418",
+   "state": "Carer of person with XLRP and complete blindness",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.42,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "38226448",
+   "state": "IRD – widespread retinal involvement",
+   "sev": 2,
+   "inst": "EQ-5D-5L",
+   "value": 0.88,
+   "disp": "median",
+   "vtype": "level"
+  },
+  {
+   "sid": "38226448",
+   "state": "IRD – central retinal involvement",
+   "sev": 1,
+   "inst": "EQ-5D-5L",
+   "value": 0.91,
+   "disp": "median",
+   "vtype": "level"
+  },
+  {
+   "sid": "37046915",
+   "state": "Caregiver of person with RP",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.882,
+   "disp": null,
+   "vtype": "level",
+   "resp": "Caregivers"
+  },
+  {
+   "sid": "36010145",
+   "state": "Stickler syndrome (children)",
+   "sev": 0,
+   "inst": "EQ-5D",
+   "value": 0.8,
+   "disp": "95% CI 0.7–0.9",
+   "vtype": "level"
+  },
+  {
+   "sid": "30658988",
+   "state": "RPE65 IRD – moderate vision loss",
+   "sev": 1,
+   "inst": "EQ-5D-5L",
+   "value": 0.709,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30658988",
+   "state": "RPE65 IRD – hand motion to no light perception",
+   "sev": 4,
+   "inst": "EQ-5D-5L",
+   "value": 0.152,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30658988",
+   "state": "RPE65 IRD – moderate vision loss",
+   "sev": 1,
+   "inst": "HUI3",
+   "value": 0.519,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30658988",
+   "state": "RPE65 IRD – hand motion to no light perception",
+   "sev": 4,
+   "inst": "HUI3",
+   "value": -0.039,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "18243152",
+   "state": "Presbyopia (spectacle-corrected)",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.98,
+   "disp": "SD 0.086; 95% CI 0.964–0.996",
+   "vtype": "level"
+  },
+  {
+   "sid": "31191178",
+   "state": "Neuromyelitis optica spectrum disorder",
+   "sev": 0,
+   "inst": "EQ-5D",
+   "value": 0.74,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "21570045",
+   "state": "Symptomatic vitreous floaters",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.89,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "21570045",
+   "state": "Symptomatic vitreous floaters",
+   "sev": 0,
+   "inst": "SG (death)",
+   "value": 0.89,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "21570045",
+   "state": "Symptomatic vitreous floaters",
+   "sev": 0,
+   "inst": "SG (blindness)",
+   "value": 0.93,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "23054488",
+   "state": "Visually disabling vitreous floaters",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.904,
+   "disp": "SD 0.054",
+   "vtype": "level"
+  },
+  {
+   "sid": "18780253",
+   "state": "Rhegmatogenous retinal detachment",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.71,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "17057800",
+   "state": "Adult strabismus – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.93,
+   "disp": "median; IQR 0.83–1.0",
+   "vtype": "level"
+  },
+  {
+   "sid": "17057800",
+   "state": "Adult strabismus – before surgery",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.9,
+   "disp": "median",
+   "vtype": "level"
+  },
+  {
+   "sid": "36580313",
+   "state": "TED – no diplopia, small proptosis",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.6,
+   "disp": "95% CI 0.54–0.67",
+   "vtype": "level"
+  },
+  {
+   "sid": "36580313",
+   "state": "TED – intermittent diplopia, small proptosis",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.52,
+   "disp": "95% CI 0.45–0.58",
+   "vtype": "level"
+  },
+  {
+   "sid": "36580313",
+   "state": "TED – no diplopia, large proptosis",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.46,
+   "disp": "95% CI 0.40–0.52",
+   "vtype": "level"
+  },
+  {
+   "sid": "36580313",
+   "state": "TED – intermittent diplopia, large proptosis",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.43,
+   "disp": "95% CI 0.36–0.49",
+   "vtype": "level"
+  },
+  {
+   "sid": "36580313",
+   "state": "TED – constant diplopia, small proptosis",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.34,
+   "disp": "95% CI 0.29–0.40",
+   "vtype": "level"
+  },
+  {
+   "sid": "36580313",
+   "state": "TED – constant diplopia, large proptosis",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.3,
+   "disp": "95% CI 0.24–0.36",
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Uveitis – all",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.831,
+   "disp": "95% CI 0.802–0.860",
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Uveitis – all",
+   "sev": 0,
+   "inst": "SG",
+   "value": 0.868,
+   "disp": "95% CI 0.840–0.896",
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Uveitis – all",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.742,
+   "disp": "95% CI 0.702–0.782",
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Better-eye VA 6/12 or better",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.86,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Better-eye VA 6/15–6/60",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.662,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Better-eye VA worse than 6/60",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.608,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Better-eye VA 6/12 or better",
+   "sev": 1,
+   "inst": "SG",
+   "value": 0.893,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Better-eye VA 6/15–6/60",
+   "sev": 2,
+   "inst": "SG",
+   "value": 0.742,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "30361275",
+   "state": "Better-eye VA worse than 6/60",
+   "sev": 3,
+   "inst": "SG",
+   "value": 0.712,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "31201795",
+   "state": "Noninfectious uveitis",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.975,
+   "disp": "median; IQR 0.8–1.0",
+   "vtype": "level"
+  },
+  {
+   "sid": "22321801",
+   "state": "Anterior uveitis with inflammatory back pain",
+   "sev": 2,
+   "inst": "EQ-5D",
+   "value": 0.73,
+   "disp": "SD 0.21",
+   "vtype": "level"
+  },
+  {
+   "sid": "22321801",
+   "state": "Anterior uveitis without inflammatory back pain",
+   "sev": 1,
+   "inst": "EQ-5D",
+   "value": 0.82,
+   "disp": "SD 0.16",
+   "vtype": "level"
+  },
+  {
+   "sid": "21840602",
+   "state": "Change at 24 months – fluocinolone implant",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": 0.02,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "21840602",
+   "state": "Change at 24 months – systemic therapy",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": -0.02,
+   "disp": null,
+   "vtype": "gain"
+  },
+  {
+   "sid": "39089062",
+   "state": "DR, wet AMD or cataract (pooled)",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.84,
+   "disp": "SD 0.25",
+   "vtype": "level"
+  },
+  {
+   "sid": "39089062",
+   "state": "DR, wet AMD or cataract (pooled)",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.7,
+   "disp": "SD 0.19",
+   "vtype": "level"
+  },
+  {
+   "sid": "39089062",
+   "state": "DR, wet AMD or cataract (pooled)",
+   "sev": 0,
+   "inst": "HUI3",
+   "value": 0.68,
+   "disp": "SD 0.26",
+   "vtype": "level"
+  },
+  {
+   "sid": "39133678",
+   "state": "Awaiting specialist eye care",
+   "sev": 0,
+   "inst": "VFQ-UI",
+   "value": 0.85,
+   "disp": "median; IQR 0.70–0.92",
+   "vtype": "level"
+  },
+  {
+   "sid": "39262686",
+   "state": "Seniors with eye disease",
+   "sev": 0,
+   "inst": "Utility (method not stated)",
+   "value": 0.88,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "36177426",
+   "state": "Adults with visual impairment",
+   "sev": 0,
+   "inst": "EQ-5D-5L",
+   "value": 0.68,
+   "disp": "SD 0.25",
+   "vtype": "level"
+  },
+  {
+   "sid": "31515429",
+   "state": "Moderate VI or worse, both eyes",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.65,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "27196876",
+   "state": "Visual impairment vs none",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": -0.0549,
+   "disp": "95% CI -0.0777 to -0.0321",
+   "vtype": "decrement",
+   "note": "Preference weight"
+  },
+  {
+   "sid": "26379209",
+   "state": "Visual impairment vs none",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": -0.158,
+   "disp": "95% CI -0.186 to -0.130",
+   "vtype": "decrement",
+   "note": "Mean difference"
+  },
+  {
+   "sid": "26040222",
+   "state": "Mild vision loss (hypothetical)",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.96,
+   "disp": null,
+   "vtype": "level",
+   "note": "Medical students, 2nd-year students"
+  },
+  {
+   "sid": "26040222",
+   "state": "Legal blindness (hypothetical)",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.88,
+   "disp": null,
+   "vtype": "level",
+   "note": "Medical students, 2nd-year students"
+  },
+  {
+   "sid": "26040222",
+   "state": "Absolute blindness (hypothetical)",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.8,
+   "disp": null,
+   "vtype": "level",
+   "note": "Medical students, 2nd-year students"
+  },
+  {
+   "sid": "26040222",
+   "state": "Mild vision loss (hypothetical)",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.95,
+   "disp": null,
+   "vtype": "level",
+   "note": "Medical students, 3rd/4th-year students"
+  },
+  {
+   "sid": "26040222",
+   "state": "Legal blindness (hypothetical)",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.84,
+   "disp": null,
+   "vtype": "level",
+   "note": "Medical students, 3rd/4th-year students"
+  },
+  {
+   "sid": "26040222",
+   "state": "Absolute blindness (hypothetical)",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.67,
+   "disp": null,
+   "vtype": "level",
+   "note": "Medical students, 3rd/4th-year students"
+  },
+  {
+   "sid": "24768238",
+   "state": "Bilateral severe VI vs none – Chinese",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": -0.044,
+   "disp": "95% CI -0.089 to 0.001",
+   "vtype": "decrement"
+  },
+  {
+   "sid": "24768238",
+   "state": "Bilateral severe VI vs none – Indians",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": -0.127,
+   "disp": "95% CI -0.237 to -0.017",
+   "vtype": "decrement"
+  },
+  {
+   "sid": "24768238",
+   "state": "Bilateral severe VI vs none – Malays",
+   "sev": 9,
+   "inst": "EQ-5D",
+   "value": -0.085,
+   "disp": "95% CI -0.148 to -0.022",
+   "vtype": "decrement"
+  },
+  {
+   "sid": "25133670",
+   "state": "Normal vision (comparator)",
+   "sev": -1,
+   "inst": "TTO",
+   "value": 0.93,
+   "disp": "SD 0.10",
+   "vtype": "level"
+  },
+  {
+   "sid": "25133670",
+   "state": "Visual impairment (20/80–20/200)",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.88,
+   "disp": "SD 0.14",
+   "vtype": "level"
+  },
+  {
+   "sid": "25133670",
+   "state": "Severe visual impairment (20/240–20/400)",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.86,
+   "disp": "SD 0.13",
+   "vtype": "level"
+  },
+  {
+   "sid": "25133670",
+   "state": "Blindness",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.73,
+   "disp": "SD 0.17",
+   "vtype": "level"
+  },
+  {
+   "sid": "23628757",
+   "state": "Adults with visual impairment",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.65,
+   "disp": "SD 0.31",
+   "vtype": "level"
+  },
+  {
+   "sid": "23628757",
+   "state": "Adults with visual impairment",
+   "sev": 0,
+   "inst": "VisQoL",
+   "value": 0.66,
+   "disp": "SD 0.27",
+   "vtype": "level"
+  },
+  {
+   "sid": "23851303",
+   "state": "Low vision – before rehabilitation",
+   "sev": 2,
+   "inst": "EQ-5D",
+   "value": 0.77,
+   "disp": "median",
+   "vtype": "level"
+  },
+  {
+   "sid": "18972222",
+   "state": "Type 2 diabetes – VA 20/20 or better",
+   "sev": 1,
+   "inst": "EQ-5D",
+   "value": 0.82,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "18972222",
+   "state": "Type 2 diabetes – VA 20/40",
+   "sev": 2,
+   "inst": "EQ-5D",
+   "value": 0.75,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "17613846",
+   "state": "Adults at visual rehabilitation centre",
+   "sev": 2,
+   "inst": "EQ-5D",
+   "value": 0.73,
+   "disp": "SD 0.22",
+   "vtype": "level"
+  },
+  {
+   "sid": "16836777",
+   "state": "Children – nystagmus alone",
+   "sev": 1,
+   "inst": "HUI3",
+   "value": 0.8,
+   "disp": "SD 0.26",
+   "vtype": "level"
+  },
+  {
+   "sid": "16836777",
+   "state": "Children – condition of the eye",
+   "sev": 2,
+   "inst": "HUI3",
+   "value": 0.45,
+   "disp": "SD 0.33",
+   "vtype": "level"
+  },
+  {
+   "sid": "16836777",
+   "state": "Children – visual pathway condition",
+   "sev": 3,
+   "inst": "HUI3",
+   "value": 0.05,
+   "disp": "SD 0.33",
+   "vtype": "level"
+  },
+  {
+   "sid": "12799229",
+   "state": "Better-eye VA 20/20–20/25",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.88,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "12799229",
+   "state": "Better-eye VA 20/30–20/50",
+   "sev": 2,
+   "inst": "TTO",
+   "value": 0.81,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "12799229",
+   "state": "Better-eye VA 20/60–20/100",
+   "sev": 2.5,
+   "inst": "TTO",
+   "value": 0.72,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "12799229",
+   "state": "Better-eye VA 20/200–no light perception",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.61,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "11222340",
+   "state": "No light perception, both eyes (hypothetical)",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.26,
+   "disp": "95% CI 0.19–0.33",
+   "vtype": "level"
+  },
+  {
+   "sid": "11222340",
+   "state": "Light perception to counting fingers",
+   "sev": 4,
+   "inst": "TTO",
+   "value": 0.47,
+   "disp": "95% CI 0.33–0.61",
+   "vtype": "level"
+  },
+  {
+   "sid": "11222340",
+   "state": "Better-eye VA 20/200–20/400",
+   "sev": 3,
+   "inst": "TTO",
+   "value": 0.65,
+   "disp": "95% CI 0.58–0.72",
+   "vtype": "level"
+  },
+  {
+   "sid": "11297474",
+   "state": "Good VA in one eye only",
+   "sev": 1,
+   "inst": "TTO",
+   "value": 0.89,
+   "disp": "95% CI 0.85–0.93",
+   "vtype": "level"
+  },
+  {
+   "sid": "11297474",
+   "state": "Good VA in both eyes",
+   "sev": 0.5,
+   "inst": "TTO",
+   "value": 0.97,
+   "disp": "95% CI 0.97–0.99",
+   "vtype": "level"
+  },
+  {
+   "sid": "10959467",
+   "state": "Mixed ocular conditions",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.72,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "11035553",
+   "state": "Current vision (patients with angina)",
+   "sev": 0,
+   "inst": "TTO",
+   "value": 0.82,
+   "disp": null,
+   "vtype": "level"
+  },
+  {
+   "sid": "11035553",
+   "state": "Current VI vs ideal vision",
+   "sev": 9,
+   "inst": "TTO",
+   "value": -0.146,
+   "disp": null,
+   "vtype": "decrement"
+  },
+  {
+   "sid": "11035553",
+   "state": "Binocular blindness vs ideal vision",
+   "sev": 9,
+   "inst": "TTO",
+   "value": -0.477,
+   "disp": null,
+   "vtype": "decrement"
+  }
+ ],
+ "fulltext_queue": [
+  {
+   "id": "22909264",
+   "author": "Bozzani FM",
+   "year": 2012,
+   "ind": "glaucoma",
+   "title": "A comparison of the sensitivity of EQ-5D, SF-6D and TTO utility values to changes in vision and perceived visual function in patients with POAG",
+   "reason": "Abstract reports only P values across visual-field quartiles"
+  },
+  {
+   "id": "15349514",
+   "author": "Mo F",
+   "year": 2004,
+   "ind": "glaucoma",
+   "title": "Using Health Utility Index (HUI) for measuring the impact on HRQL among individuals with chronic diseases",
+   "reason": "Glaucoma-specific HUI value not in abstract"
+  },
+  {
+   "id": "10537955",
+   "author": "Mittmann N",
+   "year": 1999,
+   "ind": "glaucoma",
+   "title": "Utility scores for chronic conditions in a community-dwelling population",
+   "reason": "Glaucoma-specific HUI3 value not in abstract"
+  },
+  {
+   "id": "40847350",
+   "author": "Liang G",
+   "year": 2025,
+   "ind": "myopia",
+   "title": "Validation and comparison of EQ-5D-5L and SF-6Dv1 in myopic patients requiring corneal refractive surgery in China",
+   "reason": "Utility means not reported in abstract"
+  },
+  {
+   "id": "26956897",
+   "author": "Ock M",
+   "year": 2016,
+   "ind": "vi",
+   "title": "Estimating the severity distribution of disease in South Korea using EQ-5D-3L: a cross-sectional study",
+   "reason": "Multi-disease valuation; eye-related states, if any, are not in the abstract"
+  },
+  {
+   "id": "32080789",
+   "author": "Breheny K",
+   "year": 2020,
+   "ind": "cataract",
+   "title": "Assessing the construct validity and responsiveness of Preference-Based Measures (PBMs) in cataract surgery patients",
+   "reason": "Effect sizes only; utility levels not in abstract"
+  },
+  {
+   "id": "22205611",
+   "author": "Fenwick EK",
+   "year": 2012,
+   "ind": "dr",
+   "title": "The impact of diabetic retinopathy and diabetic macular edema on health-related quality of life in type 1 and type 2 diabetes",
+   "reason": "EQ-5D values by DR/DME grade not in abstract"
+  },
+  {
+   "id": "15936470",
+   "author": "Tung TH",
+   "year": 2005,
+   "ind": "dr",
+   "title": "A community-based study for the utility values associated with diabetic retinopathy among type 2 diabetics in Kinmen, Taiwan",
+   "reason": "Abstract gives diabetes utility only; DR-grade values need full text"
+  },
+  {
+   "id": "39929980",
+   "author": "Zhang Y",
+   "year": 2025,
+   "ind": "onc",
+   "title": "Health related quality of life and its influencing factors in Chinese patients with ocular tumors",
+   "reason": "Only EQ-5D VAS reported; index value needs full text"
+  },
+  {
+   "id": "36385360",
+   "author": "Purola PKM",
+   "year": 2023,
+   "ind": "vi",
+   "title": "Comparison of three health-related quality of life instruments in relation to visual acuity: EQ-5D, 15D, and EUROHIS-QOL8",
+   "reason": "EQ-5D and 15D by VA group not in abstract"
+  },
+  {
+   "id": "28371261",
+   "author": "Macedo AF",
+   "year": 2017,
+   "ind": "vi",
+   "title": "Visual and health outcomes, measured with the activity inventory and the EQ-5D, in visual impairment",
+   "reason": "EQ-5D-3L by VI level not in abstract"
+  },
+  {
+   "id": "10826549",
+   "author": "Brown GC",
+   "year": 1998,
+   "ind": "vi",
+   "title": "Patient perceptions of quality-of-life associated with bilateral visual loss",
+   "reason": "Only a range (0.47–0.71) across VA groups in abstract"
+  }
+ ],
+ "excluded": [
+  {
+   "id": "42043757",
+   "reason": "No utility value reported (trial, EQ-5D-5L not significant)"
+  },
+  {
+   "id": "39402234",
+   "reason": "No utility value reported"
+  },
+  {
+   "id": "35852996",
+   "reason": "Psychometric validation of a questionnaire; no HSUV"
+  },
+  {
+   "id": "25582994",
+   "reason": "Psychometric validation in Sjögren's; no HSUV"
+  },
+  {
+   "id": "41802551",
+   "reason": "Off-topic ('model utility' in machine learning)"
+  },
+  {
+   "id": "36877820",
+   "reason": "Off-topic (usability of decision-support tool)"
+  },
+  {
+   "id": "34006510",
+   "reason": "Methods (MID of VFQ-25); no HSUV"
+  },
+  {
+   "id": "33444381",
+   "reason": "Off-topic (teleconsultation)"
+  },
+  {
+   "id": "33344190",
+   "reason": "Off-topic (diagnostic utility of OCT)"
+  },
+  {
+   "id": "34285433",
+   "reason": "No utility value reported"
+  },
+  {
+   "id": "30273622",
+   "reason": "No utility value reported (UKGTS PROMs)"
+  },
+  {
+   "id": "30770751",
+   "reason": "Off-topic (structure–function imaging)"
+  },
+  {
+   "id": "31233453",
+   "reason": "Path coefficients only; no HSUV"
+  },
+  {
+   "id": "29370022",
+   "reason": "Off-topic (self-tonometry)"
+  },
+  {
+   "id": "20164800",
+   "reason": "Pain intervention after AACG attack (n=19); treatment effect only"
+  },
+  {
+   "id": "11923247",
+   "reason": "Correlations only; no HSUV"
+  },
+  {
+   "id": "42319642",
+   "reason": "Review"
+  },
+  {
+   "id": "42580097",
+   "reason": "Off-topic (pharmacokinetics)"
+  },
+  {
+   "id": "40877835",
+   "reason": "Off-topic (prediction nomogram)"
+  },
+  {
+   "id": "40975744",
+   "reason": "Off-topic (imaging sensitivity)"
+  },
+  {
+   "id": "40895634",
+   "reason": "Off-topic (diagnostic utility of a biomarker)"
+  },
+  {
+   "id": "38141059",
+   "reason": "Off-topic (imaging biomarker)"
+  },
+  {
+   "id": "28913998",
+   "reason": "No utility value reported"
+  },
+  {
+   "id": "39691138",
+   "reason": "Off-topic (diagnostic device)"
+  },
+  {
+   "id": "20080915",
+   "reason": "Population: rheumatic diseases"
+  },
+  {
+   "id": "20935280",
+   "reason": "Measurement-error methods; no HSUV"
+  },
+  {
+   "id": "19473334",
+   "reason": "Mode-of-administration effects; no HSUV"
+  },
+  {
+   "id": "28007107",
+   "reason": "Percentage changes only; no utility value"
+  },
+  {
+   "id": "11401045",
+   "reason": "Correlations only; no HSUV"
+  },
+  {
+   "id": "39849402",
+   "reason": "Off-topic (tear metabolomics)"
+  },
+  {
+   "id": "39998975",
+   "reason": "Off-topic (in vitro drug study)"
+  },
+  {
+   "id": "27171131",
+   "reason": "No utility value reported"
+  },
+  {
+   "id": "18665811",
+   "reason": "Animal study"
+  },
+  {
+   "id": "41254995",
+   "reason": "Off-topic (air pollution and DR prevalence)"
+  },
+  {
+   "id": "41846906",
+   "reason": "Off-topic (prediction nomogram)"
+  },
+  {
+   "id": "42851381",
+   "reason": "Off-topic (nutritional biomarker)"
+  },
+  {
+   "id": "40734942",
+   "reason": "Off-topic (prediction nomogram)"
+  },
+  {
+   "id": "40969370",
+   "reason": "Off-topic (treatment-response nomogram)"
+  },
+  {
+   "id": "36449771",
+   "reason": "Off-topic (platelet indices)"
+  },
+  {
+   "id": "29563821",
+   "reason": "DR pooled with other diabetic complications"
+  },
+  {
+   "id": "24568628",
+   "reason": "Mapping algorithm performance only"
+  },
+  {
+   "id": "23347793",
+   "reason": "Psychometric validation; no HSUV"
+  },
+  {
+   "id": "34413492",
+   "reason": "Off-topic (myopia prevalence)"
+  },
+  {
+   "id": "25783952",
+   "reason": "Off-topic (refractive error prevalence)"
+  },
+  {
+   "id": "40679529",
+   "reason": "Off-topic (survival nomogram)"
+  },
+  {
+   "id": "34619949",
+   "reason": "Off-topic (fundus findings)"
+  },
+  {
+   "id": "42871061",
+   "reason": "Off-topic (AI segmentation)"
+  },
+  {
+   "id": "32400047",
+   "reason": "Population: vestibular disorders"
+  },
+  {
+   "id": "38341128",
+   "reason": "Mapping coefficient only; no HSUV"
+  },
+  {
+   "id": "42652619",
+   "reason": "Population: psoriatic arthritis"
+  },
+  {
+   "id": "31665462",
+   "reason": "Comorbidity questionnaire validation"
+  },
+  {
+   "id": "32224157",
+   "reason": "Mixed immune-mediated diseases; no uveitis-specific value"
+  },
+  {
+   "id": "41249669",
+   "reason": "Off-topic (radiology device)"
+  },
+  {
+   "id": "41732778",
+   "reason": "Off-topic (federated learning)"
+  },
+  {
+   "id": "42091213",
+   "reason": "Off-topic (concussion screening)"
+  },
+  {
+   "id": "42183399",
+   "reason": "CarerQol care-related wellbeing, not a health utility"
+  },
+  {
+   "id": "40706133",
+   "reason": "Mapping study; no level values"
+  },
+  {
+   "id": "41019429",
+   "reason": "Off-topic (cardiovascular risk)"
+  },
+  {
+   "id": "41027031",
+   "reason": "Off-topic (cardiac imaging)"
+  },
+  {
+   "id": "41077799",
+   "reason": "Off-topic (ICU pain assessment)"
+  },
+  {
+   "id": "41162487",
+   "reason": "Off-topic (rehabilitation nomogram)"
+  },
+  {
+   "id": "35145163",
+   "reason": "Regression statistics only"
+  },
+  {
+   "id": "33621285",
+   "reason": "Off-topic (chemistry)"
+  },
+  {
+   "id": "34824838",
+   "reason": "Off-topic (surgical training)"
+  },
+  {
+   "id": "30447226",
+   "reason": "Narrative review restating published values"
+  },
+  {
+   "id": "29765104",
+   "reason": "Off-topic (falls)"
+  },
+  {
+   "id": "26686788",
+   "reason": "Discriminatory power only; no levels"
+  },
+  {
+   "id": "18484696",
+   "reason": "Oral and ocular dryness combined"
+  },
+  {
+   "id": "18780254",
+   "reason": "Instrument development methods"
+  },
+  {
+   "id": "12498507",
+   "reason": "Correlations only; no HSUV"
+  }
+ ],
+ "conditions": [
+  {
+   "k": "glaucoma",
+   "label": "Glaucoma & OHT",
+   "fam": "Glaucoma"
+  },
+  {
+   "k": "amd",
+   "label": "Age-related macular degeneration",
+   "fam": "Retina"
+  },
+  {
+   "k": "dr",
+   "label": "Diabetic retinopathy & DME",
+   "fam": "Retina"
+  },
+  {
+   "k": "ird",
+   "label": "Inherited retinal disease",
+   "fam": "Retina"
+  },
+  {
+   "k": "retina_other",
+   "label": "Floaters & retinal detachment",
+   "fam": "Retina"
+  },
+  {
+   "k": "cataract",
+   "label": "Cataract",
+   "fam": "Lens & refraction"
+  },
+  {
+   "k": "myopia",
+   "label": "Myopia & refractive error",
+   "fam": "Lens & refraction"
+  },
+  {
+   "k": "dry_eye",
+   "label": "Dry eye & Sjögren's",
+   "fam": "Ocular surface"
+  },
+  {
+   "k": "cornea",
+   "label": "Keratoconus",
+   "fam": "Ocular surface"
+  },
+  {
+   "k": "allergy",
+   "label": "Ocular surface inflammation",
+   "fam": "Ocular surface"
+  },
+  {
+   "k": "uveitis",
+   "label": "Uveitis",
+   "fam": "Inflammation, orbit & neuro"
+  },
+  {
+   "k": "ted",
+   "label": "Thyroid eye disease",
+   "fam": "Inflammation, orbit & neuro"
+  },
+  {
+   "k": "neuro",
+   "label": "Neuro-ophthalmology",
+   "fam": "Inflammation, orbit & neuro"
+  },
+  {
+   "k": "strab",
+   "label": "Strabismus",
+   "fam": "Inflammation, orbit & neuro"
+  },
+  {
+   "k": "other",
+   "label": "Anophthalmia & other",
+   "fam": "Other"
+  },
+  {
+   "k": "vi",
+   "label": "Visual impairment (mixed causes)",
+   "fam": "Visual impairment"
+  }
+ ]
+}
