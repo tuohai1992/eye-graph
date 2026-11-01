@@ -939,7 +939,7 @@ function renderInfo(n){
 /* ---------- ask ---------- */
 const QS = ['Which utility values exist for wet AMD, and how do instruments compare?','What utility is reported for blindness across studies?','How do diabetic retinopathy utilities change with severity?','Which conditions have utilities from children or caregivers?','Compare TTO and standard gamble values within the same patients.','Which utility values exist for uveitis or thyroid eye disease?'];
 // set to the deployed worker URL to enable Ask outside Claude
-const ASK_API = '';
+const ASK_API = 'https://eye-graph-ask.lijieyi1992.workers.dev/ask';
 let samplePromise = null, ctl = null, thread = [], history = [];
 const HKEY = 'eyegraph-history';
 try { history = JSON.parse(localStorage.getItem(HKEY) || '[]'); } catch (e) { history = []; }

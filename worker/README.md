@@ -9,7 +9,7 @@ Safeguards: accepts requests only from `ALLOWED_ORIGINS`; 6 questions per minute
 1. **Anthropic API key** – in the Claude Console, add credit, create an API key, and set a monthly spend limit.
 2. **Cloudflare** – Workers & Pages → Create → Import a repository → `tuohai1992/eye-graph`, root directory `worker`. Deploy.
 3. **Secret** – in the worker's Settings → Variables and Secrets, add a **Secret** named `ANTHROPIC_API_KEY` with the key. Redeploy.
-4. Copy the worker URL (`https://eye-graph-ask.<your-subdomain>.workers.dev`) and set `ASK_API` in `index.html` to that URL.
+4. Enable the `workers.dev` route (Settings → Domains & Routes). Live endpoint: `https://eye-graph-ask.lijieyi1992.workers.dev/ask`, set as `ASK_API` in `index.html`.
 
 ## Config (`wrangler.toml`)
 
