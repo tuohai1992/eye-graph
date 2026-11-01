@@ -1,4 +1,4 @@
-// Eye HSUV Graph – Ask backend. Keeps the API key server-side.
+// EyeUtility Graph – Ask backend. Keeps the API key server-side.
 
 const DATA_URL = 'https://tuohai1992.github.io/eye-graph/data/eye-graph.json';
 const MODEL = 'claude-haiku-5-5';
