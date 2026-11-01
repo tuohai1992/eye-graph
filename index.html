@@ -87,6 +87,7 @@ a{color:var(--accent)}
 .histlist{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 14px}
 .histlist button{all:unset;cursor:pointer;display:block;padding:7px 0;border-bottom:1px solid var(--line);font-size:.9rem;width:100%}
 .histlist button:last-child{border-bottom:0}
+.histlist .clr{color:var(--accent);font-size:.85rem;padding-top:9px}
 .thread{display:flex;flex-direction:column;gap:22px}
 .turn .uq{font-weight:600;font-size:1.05rem;margin:0 0 8px}
 .turn .ans p{margin:0 0 10px} .turn .ans ul{margin:0 0 10px;padding-left:20px}
@@ -1029,8 +1030,9 @@ function initAsk(){
   document.getElementById('stopBtn').onclick = () => ctl?.abort();
   document.getElementById('newChat').onclick = () => { thread = []; renderThread(); document.getElementById('histList').hidden = true; };
   document.getElementById('histBtn').onclick = () => { const h = document.getElementById('histList'); h.hidden = !h.hidden || !history.length;
-    h.innerHTML = history.map((x, i) => `<button data-i="${i}">${esc(x.q)}</button>`).join('');
-    h.querySelectorAll('button').forEach(b => b.onclick = () => { const x = history[+b.dataset.i]; thread = [{q:x.q, a:x.a}]; renderThread(); h.hidden = true; }); };
+    h.innerHTML = history.map((x, i) => `<button data-i="${i}">${esc(x.q)}</button>`).join('') + `<button class="clr" id="histClear">Clear history</button>`;
+    h.querySelectorAll('button[data-i]').forEach(b => b.onclick = () => { const x = history[+b.dataset.i]; thread = [{q:x.q, a:x.a}]; renderThread(); h.hidden = true; });
+    document.getElementById('histClear').onclick = () => { history = []; saveHist(); thread = []; renderThread(); h.hidden = true; }; };
   saveHist();
   samplePromise = (window.claude ? window.claude.use('sample') : Promise.resolve(null)).catch(() => null);
   samplePromise.then(s => { if (s) return; if (ASK_API) { document.getElementById('askNote').textContent = 'Answers come only from the extracted values and cite PMIDs. Charts are drawn from the stored values, not from numbers the model writes. Answered by Claude Haiku through this site; up to 6 questions a minute.'; return; } document.getElementById('askNote').textContent = 'Questions work when this page is open in Claude. The Story, Graph and Data views work everywhere.'; document.getElementById('sendBtn').disabled = true; ql.querySelectorAll('button').forEach(b => b.disabled = true); });
