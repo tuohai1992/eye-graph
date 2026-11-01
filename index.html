@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>*,*::before,*::after{box-sizing:border-box}:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px/1.4 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Eye HSUV Graph</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="A knowledge graph of published health-state utility values in eye disease."><style>*,*::before,*::after{box-sizing:border-box}:root{color-scheme:light;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0;font:14px/1.4 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title>Eye HSUV Graph</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -938,6 +938,8 @@ function renderInfo(n){
 
 /* ---------- ask ---------- */
 const QS = ['Which utility values exist for wet AMD, and how do instruments compare?','What utility is reported for blindness across studies?','How do diabetic retinopathy utilities change with severity?','Which conditions have utilities from children or caregivers?','Compare TTO and standard gamble values within the same patients.','Which utility values exist for uveitis or thyroid eye disease?'];
+// set to the deployed worker URL to enable Ask outside Claude
+const ASK_API = '';
 let samplePromise = null, ctl = null, thread = [], history = [];
 const HKEY = 'eyegraph-history';
 try { history = JSON.parse(localStorage.getItem(HKEY) || '[]'); } catch (e) { history = []; }
@@ -980,7 +982,7 @@ function renderThread(){
 }
 async function ask(q){
   q = (q || document.getElementById('q').value).trim(); if (!q) return;
-  const sample = await samplePromise; if (!sample) return;
+  const sample = await samplePromise; if (!sample && !ASK_API) return;
   document.getElementById('q').value = '';
   const prior = thread.filter(t => t.a).slice(-2).map(t => `Q: ${t.q}\nA: ${t.a.answer}`).join('\n\n');
   const turn = {q, pending:true}; thread.push(turn); renderThread();
@@ -1001,7 +1003,15 @@ QUESTION: ${q}
 
 ${context()}`;
   try {
-    const a = await sample.json(prompt, {signal:ctl.signal});
+    let a;
+    if (sample) a = await sample.json(prompt, {signal:ctl.signal});
+    else {
+      const r = await fetch(ASK_API, {method:'POST', headers:{'Content-Type':'application/json'}, signal:ctl.signal,
+        body:JSON.stringify({question:q, prior:thread.filter(x => x.a).slice(-2).map(x => ({q:x.q, a:x.a.answer}))})}).catch(e => { throw {code:e.name === 'AbortError' ? 'cancelled' : 'upstream_error'}; });
+      if (r.status === 429) throw {code:'rate_limited'};
+      if (!r.ok) throw {code:'upstream_error'};
+      a = await r.json();
+    }
     turn.a = {answer:String(a && a.answer || ''), chart:a && a.chart, followups:a && a.followups};
     history.unshift({q, a:turn.a, at:Date.now()}); history = history.slice(0, 20); saveHist();
   } catch (e) {
@@ -1022,7 +1032,7 @@ function initAsk(){
     h.querySelectorAll('button').forEach(b => b.onclick = () => { const x = history[+b.dataset.i]; thread = [{q:x.q, a:x.a}]; renderThread(); h.hidden = true; }); };
   saveHist();
   samplePromise = (window.claude ? window.claude.use('sample') : Promise.resolve(null)).catch(() => null);
-  samplePromise.then(s => { if (!s) { document.getElementById('askNote').textContent = 'Questions work when this page is open in Claude. The Story, Graph and Data views work everywhere.'; document.getElementById('sendBtn').disabled = true; ql.querySelectorAll('button').forEach(b => b.disabled = true); } });
+  samplePromise.then(s => { if (s) return; if (ASK_API) { document.getElementById('askNote').textContent = 'Answers come only from the extracted values and cite PMIDs. Charts are drawn from the stored values, not from numbers the model writes. Answered by Claude Haiku through this site; up to 6 questions a minute.'; return; } document.getElementById('askNote').textContent = 'Questions work when this page is open in Claude. The Story, Graph and Data views work everywhere.'; document.getElementById('sendBtn').disabled = true; ql.querySelectorAll('button').forEach(b => b.disabled = true); });
   document.querySelectorAll('.card .q').forEach(b => b.onclick = () => { location.hash = 'ask'; setTimeout(() => ask(b.dataset.q), 50); });
 }
 

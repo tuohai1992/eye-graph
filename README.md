@@ -20,6 +20,7 @@ A knowledge graph of published health-state utility values (HSUVs) in eye diseas
 - `data/studies.csv` – one row per included study.
 - `data/screening_log.csv` – decision and reason for every screened record (included, full text needed, excluded).
 - `data/eye-graph.json` – the full dataset used by the site, including the record flow.
+- `worker/` – optional Cloudflare Worker that answers **Ask** questions for visitors without a Claude account; see `worker/README.md`.
 
 ## Method
 
