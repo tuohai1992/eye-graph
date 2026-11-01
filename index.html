@@ -659,12 +659,15 @@ function drawFlow(){
 
 /* ---------- graph view ---------- */
 const LENSES = {everything:'Everything', instruments:'Instruments', countries:'Countries', states:'Health states'};
+const NOC = D.studies.filter(s => !s.country).length;
 const LNOTE = {
   everything:`All ${D.studies.length} studies with their instruments, countries and health states, clustered by condition.`,
-  instruments:'Which instruments each study used. Hubs are the most shared instruments.',
-  countries:`Where the studies were done. ${D.studies.filter(s => !s.country).length} abstracts do not name a country.`,
-  states:'Health states valued in each study, grouped by condition.'
+  instruments:'Instrument hubs grouped by method (direct elicitation, generic, vision-specific). Hub size is the number of values; each study sits between the instruments it used.',
+  countries:`Countries at their real place on the globe; each study floats above the country where it was done. ${NOC} abstracts name no country (south pole).`,
+  states:'Conditions on a ring. Each study fans out into the health states it valued.'
 };
+const FITK = {everything:1.2, instruments:1, countries:1.25, states:1.3};
+const LPITCH = {everything:-0.18, instruments:-0.22, countries:-0.32, states:-1.2};
 const KIND = {ind:'Condition', study:'Study', inst:'Instrument', country:'Country', state:'Health state'};
 const ANCH = (() => {
   const a = {}, nf = FAMS.length, Rf = 440, Rc = 120;
@@ -677,38 +680,81 @@ const ANCH = (() => {
   });
   return a;
 })();
+// sphere point; north up (screen y grows downward), lon 0 faces the camera
+const sph = (lat, lon, R) => { const a = lat * Math.PI / 180, b = lon * Math.PI / 180; return [R * Math.cos(a) * Math.sin(b), -R * Math.sin(a), R * Math.cos(a) * Math.cos(b)]; };
+const GR = 360;
+const LATLON = {'China':[35,105], 'United States':[39,-98], 'Singapore':[1.35,103.8], 'South Korea':[36.5,127.8], 'India':[21,78], 'United Kingdom':[54,-2], 'Thailand':[15,101], 'Brazil':[-10,-52], 'Germany':[51,10], 'Iran':[32,53], 'Australia':[-25,134], 'Canada':[57,-101], 'France':[46,2], 'Italy':[42,12.5], 'Greece':[39,22], 'Japan':[36,138], 'Spain':[40,-4], 'Kenya':[0.5,38], 'Netherlands':[52.2,5.3]};
+const NOCTRY = [-80, 20];
+// instruments: one spherical cap per method class, biggest instrument at the cap centre
+const IPOS = (() => {
+  const co = ['direct', 'generic', 'vision', 'unspecified'], pos = {};
+  const list = [...new Set(D.values.map(v => v.inst))].map(i => ({i, c:cls(i), n:D.values.filter(v => v.inst === i).length}));
+  const tot = list.length + co.length * 1.6; let k = 0;
+  co.forEach(c => { const g = list.filter(x => x.c === c).sort((a, b) => b.n - a.n); if (!g.length) return;
+    const lon0 = (k + 0.8 + g.length / 2) / tot * 360; k += g.length + 1.6;
+    g.forEach((x, j) => { const r = 15 * Math.sqrt(j), an = j * 2.39996;
+      pos[x.i] = sph(r * Math.sin(an) * 0.9, lon0 + r * Math.cos(an) * 0.75, GR); }); });
+  return pos;
+})();
+// health-state lens: conditions on a flat ring, ordered by family
+const RPOS = (() => { const p = {}, R = 470; ORDER.forEach((k, j) => { const a = j / ORDER.length * Math.PI * 2; p[k] = [Math.sin(a) * R, (j % 2 ? 1 : -1) * 18, Math.cos(a) * R]; }); return p; })();
+const nrm = (v, R) => { const l = Math.hypot(...v) || 1; return v.map(x => x / l * R); };
+const mean = ps => [0, 1, 2].map(i => ps.reduce((s, p) => s + p[i], 0) / ps.length);
 let gData = null, gLens = 'everything', hoverN = null, selN = null, hiN = new Set(), hiL = new Set(), spin = true, gReady = false;
 const cam = {yaw:0.6, pitch:-0.18, zoom:1, dist:1200, anim:null};
-let cv, ctx, W = 0, H = 0, DPR = 1, proj = [], drag = null, pointers = new Map(), pinch0 = null, COL = {}, lastT = 0, loopOn = false;
+let cv, ctx, W = 0, H = 0, DPR = 1, proj = [], drag = null, pointers = new Map(), pinch0 = null, COL = {}, lastT = 0, loopOn = false, LAND = null;
 
 function rng(seed){ return () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
 function graphData(lens){
   const nodes = [], links = [], idx = new Map();
   const add = (id, type, label, extra = {}) => { if (!idx.has(id)) { idx.set(id, nodes.length); nodes.push({id, type, label, ...extra}); } return idx.get(id); };
-  ORDER.forEach(k => add('ind:' + k, 'ind', IND[k], {ind:k}));
-  D.studies.forEach(s => {
-    const si = add('s:' + s.id, 'study', cite(s), {s, ind:s.ind}); links.push([si, idx.get('ind:' + s.ind)]);
-    if (lens === 'everything' || lens === 'countries') (s.country ? s.country.split('; ') : []).forEach(c => links.push([si, add('c:' + c, 'country', c)]));
-    const vs = D.values.filter(v => v.sid === s.id);
-    if (lens === 'everything' || lens === 'instruments') [...new Set(vs.map(v => v.inst))].forEach(i => links.push([si, add('i:' + i, 'inst', i, {cls:cls(i)})]));
-    if (lens === 'everything' || lens === 'states') [...new Set(vs.map(v => v.state))].forEach(st => links.push([si, add('h:' + s.ind + ':' + st, 'state', st, {ind:s.ind})]));
-  });
+  const stInst = s => [...new Set(D.values.filter(v => v.sid === s.id).map(v => v.inst))];
+  const stState = s => [...new Set(D.values.filter(v => v.sid === s.id).map(v => v.state))];
+  const ctry = s => s.country ? s.country.split('; ') : [];
+  if (lens === 'everything') {
+    ORDER.forEach(k => add('ind:' + k, 'ind', IND[k], {ind:k, fix:ANCH[k]}));
+    D.studies.forEach(s => {
+      const si = add('s:' + s.id, 'study', cite(s), {s, ind:s.ind, anc:ANCH[s.ind], ka:.06}); links.push([si, idx.get('ind:' + s.ind)]);
+      ctry(s).forEach(c => links.push([si, add('c:' + c, 'country', c, {anc:[0, 0, 0], ka:.004})]));
+      stInst(s).forEach(i => links.push([si, add('i:' + i, 'inst', i, {cls:cls(i), anc:[0, 0, 0], ka:.004})]));
+      stState(s).forEach(st => links.push([si, add('h:' + s.ind + ':' + st, 'state', st, {ind:s.ind, anc:ANCH[s.ind], ka:.08})]));
+    });
+  } else if (lens === 'instruments') {
+    Object.entries(IPOS).forEach(([i, p]) => add('i:' + i, 'inst', i, {cls:cls(i), fix:p, nv:D.values.filter(v => v.inst === i).length}));
+    D.studies.forEach(s => { const is = stInst(s);
+      const si = add('s:' + s.id, 'study', cite(s), {s, ind:s.ind, anc:nrm(mean(is.map(i => IPOS[i])), GR * 0.72), ka:.05});
+      is.forEach(i => links.push([si, idx.get('i:' + i)])); });
+  } else if (lens === 'countries') {
+    Object.entries(LATLON).forEach(([c, ll]) => { if (D.studies.some(s => ctry(s).includes(c))) add('c:' + c, 'country', c, {fix:sph(ll[0], ll[1], GR)}); });
+    add('c:none', 'country', 'Country not stated', {fix:sph(NOCTRY[0], NOCTRY[1], GR), none:true});
+    D.studies.forEach(s => { const cs = ctry(s).filter(c => idx.has('c:' + c)), hubs = cs.length ? cs.map(c => 'c:' + c) : ['c:none'];
+      const si = add('s:' + s.id, 'study', cite(s), {s, ind:s.ind, anc:nrm(mean(hubs.map(h => nodes[idx.get(h)].fix)), GR * 1.2), ka:.07});
+      hubs.forEach(h => links.push([si, idx.get(h)])); });
+  } else {
+    ORDER.forEach(k => add('ind:' + k, 'ind', IND[k], {ind:k, fix:RPOS[k]}));
+    D.studies.forEach(s => {
+      const si = add('s:' + s.id, 'study', cite(s), {s, ind:s.ind, anc:RPOS[s.ind], ka:.06}); links.push([si, idx.get('ind:' + s.ind)]);
+      const out = [RPOS[s.ind][0] * 1.32, RPOS[s.ind][1], RPOS[s.ind][2] * 1.32];
+      stState(s).forEach(st => links.push([si, add('h:' + s.ind + ':' + st, 'state', st, {ind:s.ind, anc:out, ka:.07})]));
+    });
+  }
   nodes.forEach(n => n.deg = 0); links.forEach(([a, b]) => { nodes[a].deg++; nodes[b].deg++; });
-  layout(nodes, links);
+  layout(nodes, links, lens);
   return {nodes, links};
 }
-function layout(nodes, links){
+function layout(nodes, links, lens){
   const R = rng(7), n = nodes.length, P = new Float64Array(n * 3), V = new Float64Array(n * 3);
-  const anchorOf = d => d.type === 'ind' || d.ind ? ANCH[d.ind] : [0, 0, 0];
-  nodes.forEach((d, i) => { const a = anchorOf(d), j = d.type === 'ind' ? 0 : 90;
+  const home = d => d.fix || d.anc || [0, 0, 0];
+  nodes.forEach((d, i) => { const a = home(d), j = d.fix ? 0 : 90;
     const prev = gData && gData.nodes.find(o => o.id === d.id);
     if (prev) { P[i*3] = prev.x; P[i*3+1] = prev.y; P[i*3+2] = prev.z; }
     else { P[i*3] = a[0] + (R() - .5) * j; P[i*3+1] = a[1] + (R() - .5) * j; P[i*3+2] = a[2] + (R() - .5) * j; } });
-  const rest = l => (nodes[l[1]].type === 'ind' ? 46 : nodes[l[1]].type === 'state' ? 26 : 95);
+  const RL = {ind:46, state:26, inst:lens === 'instruments' ? 70 : 95, country:lens === 'countries' ? 80 : 95};
+  const rest = l => RL[nodes[l[1]].type] || 95, rep = lens === 'countries' ? 380 : 520;
   for (let it = 0, A = 1; it < 360; it++, A *= 0.988) {
     for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
       const dx = P[i*3] - P[j*3], dy = P[i*3+1] - P[j*3+1], dz = P[i*3+2] - P[j*3+2];
-      const d2 = Math.max(dx*dx + dy*dy + dz*dz, 36), f = 520 * A / d2;
+      const d2 = Math.max(dx*dx + dy*dy + dz*dz, 36), f = rep * A / d2;
       if (d2 > 90000) continue;
       V[i*3] += dx*f; V[i*3+1] += dy*f; V[i*3+2] += dz*f; V[j*3] -= dx*f; V[j*3+1] -= dy*f; V[j*3+2] -= dz*f;
     }
@@ -716,28 +762,39 @@ function layout(nodes, links){
       const d = Math.sqrt(dx*dx + dy*dy + dz*dz) || 1, k = (d - rest(l)) / d * 0.06 * A;
       V[a*3] += dx*k; V[a*3+1] += dy*k; V[a*3+2] += dz*k; V[b*3] -= dx*k; V[b*3+1] -= dy*k; V[b*3+2] -= dz*k; });
     nodes.forEach((d, i) => {
-      if (d.type === 'ind') { const a = ANCH[d.ind]; P[i*3] = a[0]; P[i*3+1] = a[1]; P[i*3+2] = a[2]; V[i*3] = V[i*3+1] = V[i*3+2] = 0; return; }
-      const a = anchorOf(d), k = (d.type === 'state' ? 0.08 : d.ind ? 0.06 : 0.004) * A;
+      if (d.fix) { P[i*3] = d.fix[0]; P[i*3+1] = d.fix[1]; P[i*3+2] = d.fix[2]; V[i*3] = V[i*3+1] = V[i*3+2] = 0; return; }
+      const a = home(d), k = (d.ka || .004) * A;
       V[i*3] += (a[0] - P[i*3]) * k; V[i*3+1] += (a[1] - P[i*3+1]) * k; V[i*3+2] += (a[2] - P[i*3+2]) * k;
       P[i*3] += V[i*3]; P[i*3+1] += V[i*3+1]; P[i*3+2] += V[i*3+2]; V[i*3] *= 0.55; V[i*3+1] *= 0.55; V[i*3+2] *= 0.55;
     });
+    // countries: keep studies outside the globe surface
+    if (lens === 'countries') nodes.forEach((d, i) => { if (d.fix) return; const r = Math.hypot(P[i*3], P[i*3+1], P[i*3+2]), m = GR * 1.08;
+      if (r < m) { const f = m / (r || 1); P[i*3] *= f; P[i*3+1] *= f; P[i*3+2] *= f; } });
   }
   nodes.forEach((d, i) => { d.tx = P[i*3]; d.ty = P[i*3+1]; d.tz = P[i*3+2]; if (d.x === undefined) { const prev = gData && gData.nodes.find(o => o.id === d.id); d.x = prev ? prev.x : d.tx * 0.2; d.y = prev ? prev.y : d.ty * 0.2; d.z = prev ? prev.z : d.tz * 0.2; } });
 }
+function landRings(){
+  if (LAND || !window.topojson) return LAND;
+  const w = JSON.parse(document.getElementById('world').textContent), out = [];
+  topojson.feature(w, w.objects.countries).features.forEach(f => { const g = f.geometry; if (!g) return;
+    (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).forEach(poly => out.push(poly[0].map(([lo, la]) => sph(la, lo, GR * 0.995)))); });
+  return (LAND = out);
+}
 function refreshColors(){
-  ['--bg','--surface','--ink','--muted','--line','--accent','--n-inst','--n-country','--f-sans','--f-mono'].forEach(k => COL[k] = css(k));
+  ['--bg','--surface','--ink','--muted','--line','--accent','--n-inst','--n-country','--f-sans','--f-mono','--m-direct','--m-generic','--m-vision','--m-unspecified','--g-glow'].forEach(k => COL[k] = css(k));
   FAMS.forEach(f => COL[f] = css('--fam-' + FAMK[f]));
 }
-const nodeCol = n => n.type === 'inst' ? COL['--n-inst'] : n.type === 'country' ? COL['--n-country'] : COL[famOf(n.ind)];
+const nodeCol = n => n.type === 'inst' ? (gLens === 'instruments' ? COL['--m-' + n.cls] : COL['--n-inst']) : n.type === 'country' ? (gLens === 'countries' && !n.none ? COL['--accent'] : COL['--n-country']) : COL[famOf(n.ind)];
 const baseColor = nodeCol;
-const radius = n => n.type === 'ind' ? 8 : n.type === 'study' ? 3 + Math.min(5, Math.sqrt(n.s.n || 80) / 13) : n.type === 'state' ? 1.9 : 3 + Math.min(3.5, n.deg / 8);
+const radius = n => n.type === 'ind' ? 8 : n.type === 'study' ? 3 + Math.min(5, Math.sqrt(n.s.n || 80) / 13) : n.type === 'state' ? 1.9 : n.nv ? 3.5 + Math.min(8, Math.sqrt(n.nv) * 0.85) : gLens === 'countries' ? 3.2 + Math.min(6, Math.sqrt(n.deg) * 1.1) : 3 + Math.min(3.5, n.deg / 8);
 const active = () => selN || hoverN;
+const isHub = n => n.type === 'ind' || (gLens === 'instruments' && n.type === 'inst') || (gLens === 'countries' && n.type === 'country');
 function setHighlight(n){
   hiN = new Set(); hiL = new Set();
   if (n) { hiN.add(n.id); gData.links.forEach((l, i) => { const a = gData.nodes[l[0]], b = gData.nodes[l[1]]; if (a.id === n.id || b.id === n.id) { hiN.add(a.id); hiN.add(b.id); hiL.add(i); } }); }
 }
 function fitDist(){
-  const rs = gData.nodes.map(n => Math.hypot(n.tx, n.ty)).sort((a, b) => a - b), R = rs[Math.floor(rs.length * 0.92)] + 20;
+  const rs = gData.nodes.map(n => Math.hypot(n.tx, n.ty, n.tz)).sort((a, b) => a - b), R = (rs[Math.floor(rs.length * 0.94)] + 20) * FITK[gLens];
   return R * 900 / (0.46 * Math.min(W * 0.92, H * 1.15));
 }
 function project(){
@@ -753,6 +810,7 @@ function draw(t){
   ctx.setTransform(DPR, 0, 0, DPR, 0, 0); ctx.clearRect(0, 0, W, H);
   const zs = proj.map(p => p.z2), zmin = Math.min(...zs), zmax = Math.max(...zs), dz = Math.max(1, zmax - zmin);
   const depth = p => (p.z2 - zmin) / dz;
+  if (gLens === 'countries') drawEarth();
   // links
   ctx.lineCap = 'round';
   gData.links.forEach((l, i) => {
@@ -772,7 +830,7 @@ function draw(t){
     const n = p.n, dpt = depth(p), on = !a || hiN.has(n.id), r = radius(n) * p.s * 1.05 * (hoverN === n ? 1.35 : 1);
     let al = 0.28 + 0.72 * dpt; if (!on) al *= 0.12; if (n.type === 'state' && !on) al *= 0.6;
     const c = nodeCol(n);
-    if (n.type === 'ind') {
+    if (isHub(n)) {
       ctx.globalAlpha = al * 0.10; ctx.fillStyle = c; ctx.beginPath(); ctx.arc(p.sx, p.sy, r * 3.2, 0, 7); ctx.fill();
       ctx.globalAlpha = al * 0.18; ctx.beginPath(); ctx.arc(p.sx, p.sy, r * 1.9, 0, 7); ctx.fill();
     }
@@ -783,14 +841,15 @@ function draw(t){
   });
   // labels
   const placed = [], want = proj.filter(p => p.n.type === 'ind' || (a && hiN.has(p.n.id) && !(a.type === 'ind' && p.n.type === 'state')) || ((p.n.type === 'inst' || p.n.type === 'country') && (gLens !== 'everything' || p.n.deg >= 6)));
-  const pri = p => (a && p.n.id === a.id ? 0 : p.n.type === 'ind' ? 1 : a && hiN.has(p.n.id) ? 2 : 3);
+  const pri = p => (a && p.n.id === a.id ? 0 : isHub(p.n) ? 1 : a && hiN.has(p.n.id) ? 2 : 3);
   want.sort((p, q) => pri(p) - pri(q) || q.z2 - p.z2).forEach(p => {
-    const n = p.n, big = n.type === 'ind', mono = n.type === 'inst' || n.type === 'country';
+    const n = p.n, big = isHub(n), mono = !big && (n.type === 'inst' || n.type === 'country');
     ctx.font = big ? `600 12.5px ${COL['--f-sans']}` : mono ? `10.5px ${COL['--f-mono']}` : `11px ${COL['--f-sans']}`;
     const txt = n.label.length > 40 ? n.label.slice(0, 39) + '…' : n.label, tw = ctx.measureText(txt).width;
     const r = radius(n) * p.s, bx = {x:p.sx + r + 6, y:p.sy - 8, w:tw + 8, h:16};
-    if (bx.x + bx.w > W - 8) bx.x = p.sx - r - 6 - bx.w;
-    if (placed.some(q => bx.x < q.x + q.w && q.x < bx.x + bx.w && bx.y < q.y + q.h && q.y < bx.y + bx.h)) return;
+    const hitp = () => placed.some(q => bx.x < q.x + q.w && q.x < bx.x + bx.w && bx.y < q.y + q.h && q.y < bx.y + bx.h);
+    if (bx.x + bx.w > W - 8 || hitp()) bx.x = p.sx - r - 6 - bx.w;
+    if (bx.x < 8 || hitp()) return;
     placed.push(bx);
     let al = 0.45 + 0.55 * depth(p); if (a && !hiN.has(n.id)) al *= 0.25;
     if (!big && !mono) { ctx.globalAlpha = al * 0.92; ctx.fillStyle = COL['--surface']; ctx.strokeStyle = COL['--line']; ctx.lineWidth = 1;
@@ -800,6 +859,21 @@ function draw(t){
     ctx.fillText(txt, bx.x + 2, p.sy);
   });
   ctx.globalAlpha = 1;
+}
+function drawEarth(){
+  const cy = Math.cos(cam.yaw), sy = Math.sin(cam.yaw), cp = Math.cos(cam.pitch), sp = Math.sin(cam.pitch), D0 = cam.dist / cam.zoom;
+  const pt = q => { const x1 = q[0] * cy - q[2] * sy, z1 = q[0] * sy + q[2] * cy, y2 = q[1] * cp - z1 * sp, z2 = q[1] * sp + z1 * cp, s = 900 / Math.max(D0 - z2, 60);
+    return [W / 2 + x1 * s, H / 2 + y2 * s, z2]; };
+  const s0 = 900 / D0, rr = GR * s0 * D0 / Math.sqrt(Math.max(1, D0 * D0 - GR * GR));
+  ctx.globalAlpha = 0.7; ctx.fillStyle = COL['--surface']; ctx.beginPath(); ctx.arc(W / 2, H / 2, rr, 0, 7); ctx.fill();
+  ctx.globalAlpha = 1; ctx.strokeStyle = COL['--line']; ctx.lineWidth = 1; ctx.stroke();
+  const rings = landRings(); if (!rings) return;
+  const hz = GR * GR / D0;
+  [[false, 0.06], [true, 0.34]].forEach(([front, al]) => {
+    ctx.globalAlpha = al; ctx.strokeStyle = COL['--accent']; ctx.lineWidth = front ? 0.8 : 0.6; ctx.beginPath();
+    rings.forEach(r => { let pen = false; r.forEach(q => { const [x, y, z] = pt(q), vis = (z > hz) === front;
+      if (vis) { pen ? ctx.lineTo(x, y) : ctx.moveTo(x, y); pen = true; } else pen = false; }); });
+    ctx.stroke(); });
 }
 function tick(t){
   if (document.getElementById('v-graph').hidden || !gData) { loopOn = false; return; }
@@ -865,7 +939,7 @@ function animTo(yaw, pitch, zoom, ms){
   let y1 = yaw; while (y1 - cam.yaw > Math.PI) y1 -= 2 * Math.PI; while (cam.yaw - y1 > Math.PI) y1 += 2 * Math.PI;
   cam.anim = {t0:performance.now(), ms, y0:cam.yaw, y1, p0:cam.pitch, p1:pitch, z0:cam.zoom, z1:zoom};
 }
-function fitView(ms){ if (gData) { cam.dist = fitDist(); animTo(cam.yaw, -0.18, 1, ms); } }
+function fitView(ms){ if (gData) { cam.dist = fitDist(); animTo(cam.yaw, LPITCH[gLens], 1, ms); } }
 function setSpin(on){ spin = on; document.getElementById('gspin').setAttribute('aria-pressed', on); }
 function setLens(k){
   gLens = k; selN = null; hoverN = null; gData = graphData(k); setHighlight(null); closeInfo();
@@ -873,11 +947,14 @@ function setLens(k){
   document.getElementById('lensnote').textContent = LNOTE[k];
   document.getElementById('gnum').textContent = `${gData.nodes.length} NODES · ${gData.links.length} LINKS`;
   document.getElementById('gnodes').innerHTML = gData.nodes.map(n => `<option value="${esc(n.label)}">${esc(KIND[n.type])}</option>`).join('');
-  const leg = FAMS.map(f => [`var(--fam-${FAMK[f]})`, f, '']);
-  if (k === 'everything' || k === 'instruments') leg.push(['var(--n-inst)', 'Instrument', '']);
-  if (k === 'everything' || k === 'countries') leg.push(['transparent', 'Country', 'border:1.4px solid var(--n-country)']);
+  const leg = k === 'instruments' ? Object.entries(MC).map(([c, l]) => [`var(--m-${c})`, l + ' (hub)', '']) : [];
+  FAMS.forEach(f => leg.push([`var(--fam-${FAMK[f]})`, f, '']));
+  if (k === 'everything') leg.push(['var(--n-inst)', 'Instrument', '']);
+  if (k === 'everything') leg.push(['transparent', 'Country', 'border:1.4px solid var(--n-country)']);
+  if (k === 'countries') leg.push(['transparent', 'Country', 'border:1.4px solid var(--accent)'], ['transparent', 'Not stated', 'border:1.4px solid var(--n-country)']);
+  if (k === 'states') leg.push(['var(--muted)', 'Health state (small dot)', 'width:5px;height:5px']);
   document.getElementById('gleg').innerHTML = leg.map(([c, l, b]) => `<span><i style="background:${c};${b}"></i>${esc(l)}</span>`).join('');
-  cam.dist = fitDist();
+  cam.dist = fitDist(); animTo(cam.yaw, LPITCH[k], 1, 900);
 }
 function searchNode(q){
   q = String(q || '').trim().toLowerCase(); if (!q || !gData) return;
@@ -925,7 +1002,7 @@ function renderInfo(n){
     h += `<h3>${esc(n.label)}</h3>` + stat([[vs.length, 'Values'], [new Set(vs.map(v => v.sid)).size, 'Studies'], [new Set(vs.map(v => S[v.sid].ind)).size, 'Conditions']])
       + sec('Values', valRows(vs.slice(0, 40), v => `${v.state} · ${S[v.sid].author.split(' ')[0]} ${S[v.sid].year}`)) + sec('Studies', chips(of('study')));
   } else if (n.type === 'country') {
-    const ss = D.studies.filter(s => (s.country || '').split('; ').includes(n.label)), vs = D.values.filter(v => ss.some(s => s.id === v.sid));
+    const ss = D.studies.filter(s => n.none ? !s.country || !(s.country.split('; ').some(c => LATLON[c])) : (s.country || '').split('; ').includes(n.label)), vs = D.values.filter(v => ss.some(s => s.id === v.sid));
     h += `<h3>${esc(n.label)}</h3>` + stat([[ss.length, 'Studies'], [vs.length, 'Values'], [new Set(ss.map(s => s.ind)).size, 'Conditions']]) + sec('Studies', chips(of('study')));
   } else {
     const vs = D.values.filter(v => v.state === n.label && S[v.sid].ind === n.ind);
