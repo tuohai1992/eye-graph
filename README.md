@@ -2,7 +2,7 @@
 
 A knowledge graph of published health-state utility values (HSUVs) in eye disease: 95 studies and 249 values across 16 groups of eye conditions, linked by study, condition, health state, instrument and country.
 
-**Live site:** see the GitHub Pages link in the repository's About panel.
+**Live site:** https://tuohai1992.github.io/eye-graph/
 
 ## What is in it
 
