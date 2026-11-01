@@ -39,3 +39,7 @@ A knowledge graph of published health-state utility values (HSUVs) in eye diseas
 ## Acknowledgement
 
 Structure and workflow inspired by [EQ-Graph](https://github.com/abundance-ds/eq-graph) by Abundance Decision Systems. This project is independent and not affiliated with EuroQol or Abundance Decision Systems.
+
+## Licence
+
+Code (`index.html`) is released under the MIT licence; see `LICENSE`. Data in `data/` is released under CC BY 4.0; see `data/LICENSE.md`. Cite the original studies when using their values.
