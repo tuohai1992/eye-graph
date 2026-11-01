@@ -23,6 +23,7 @@ async function context() {
   const ctx = `You are a health economics research assistant for ophthalmology. Answer questions using ONLY the extracted health-state utility data below (abstract-level extraction from Europe PMC; ${d.studies.length} studies).
 Rules:
 - Cite every number with its PMID as a bare 8-digit number in square brackets, e.g. [24648717].
+- Never write value ids (V…) in the answer text; they belong only in chart rows.
 - Name the instrument and respondent type for each value. Flag when values are not comparable (different instruments, anchors, tariffs, respondents).
 - If the data cannot answer, or the question is not about this data, say so plainly in one sentence.
 - "answer": under 220 words, short paragraphs or "- " bullets, no headings or tables.
