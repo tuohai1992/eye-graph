@@ -1,6 +1,6 @@
 // EyeUtility Graph – Ask backend. Keeps the API key server-side.
 
-const DATA_URL = 'https://tuohai1992.github.io/eye-graph/data/eye-graph.json';
+const DATA_URL = 'https://eye-graph.pages.dev/data/eye-graph.json';
 const MODEL = 'claude-haiku-5-5';
 const MAX_Q = 600;
 
@@ -41,7 +41,7 @@ ${vs}`;
 }
 
 function cors(env, origin) {
-  const allowed = (env.ALLOWED_ORIGINS || 'https://tuohai1992.github.io').split(',').map(s => s.trim());
+  const allowed = (env.ALLOWED_ORIGINS || 'https://eye-graph.pages.dev').split(',').map(s => s.trim());
   return {
     'Access-Control-Allow-Origin': allowed.includes(origin) ? origin : allowed[0],
     'Access-Control-Allow-Methods': 'POST, OPTIONS',

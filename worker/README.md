@@ -15,6 +15,6 @@ Safeguards: accepts requests only from `ALLOWED_ORIGINS`; 6 questions per minute
 
 | Name | Default | Purpose |
 |---|---|---|
-| `ALLOWED_ORIGINS` | `https://tuohai1992.github.io` | Sites allowed to call the worker (comma-separated) |
+| `ALLOWED_ORIGINS` | `https://eye-graph.pages.dev` | Sites allowed to call the worker (comma-separated) |
 | `MODEL` | `claude-haiku-5-5` | Claude model |
 | `LIMITER` | 6 / 60 s | Per-IP rate limit |

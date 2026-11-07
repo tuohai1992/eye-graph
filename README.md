@@ -2,7 +2,7 @@
 
 A knowledge graph of published health-state utility values (HSUVs) in eye disease: 95 studies and 249 values across 16 groups of eye conditions, linked by study, condition, health state, instrument and country.
 
-**Live site:** https://tuohai1992.github.io/eye-graph/
+**Live site:** https://eye-graph.pages.dev/
 
 ## What is in it
 
@@ -21,6 +21,10 @@ A knowledge graph of published health-state utility values (HSUVs) in eye diseas
 - `data/screening_log.csv` – decision and reason for every screened record (included, full text needed, excluded).
 - `data/eye-graph.json` – the full dataset used by the site, including the record flow.
 - `worker/` – optional Cloudflare Worker that answers **Ask** questions for visitors without a Claude account; see `worker/README.md`.
+
+## Hosting
+
+Served by Cloudflare Pages from this repository (project `eye-graph`, branch `main`). Build command `mkdir -p site && cp -r index.html data LICENSE site/`, output directory `site`, so only the page, the data files and the licence are published. Every push to `main` redeploys the site.
 
 ## Method
 
